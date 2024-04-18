@@ -1230,6 +1230,7 @@ GameObject:
   - component: {fileID: 8002626098536939012}
   - component: {fileID: 2301937240045767589}
   - component: {fileID: 6333150602539956813}
+  - component: {fileID: 7439683537450967145}
   m_Layer: 9
   m_Name: Theo
   m_TagString: Untagged
@@ -1264,7 +1265,7 @@ Animator:
   m_GameObject: {fileID: 5951369935187859747}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fafef3dae4202dc4b9bedf4663c2f6e3, type: 3}
-  m_Controller: {fileID: 9100000, guid: f680c38ed911c2f4c92d086933f51b29, type: 2}
+  m_Controller: {fileID: 9100000, guid: e9c1cb6939c7112418bab7aa3f07959e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1282,7 +1283,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5951369935187859747}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 587202ed71fa2844c913a6eba5bddac7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1298,6 +1299,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &7439683537450967145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951369935187859747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c83bfdf4ca95b4e8a36b4234f20f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 7657413881287231620}
 --- !u!1 &6156951834635198449
 GameObject:
   m_ObjectHideFlags: 0
