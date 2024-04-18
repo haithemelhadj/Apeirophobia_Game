@@ -1818,7 +1818,7 @@ MonoBehaviour:
   inputDir: {x: 0, y: 0, z: 0}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 265
   extraScanDistance: 0.05
   playerHeight: 1
   playerCamera: {fileID: 0}
@@ -1863,7 +1863,7 @@ MonoBehaviour:
   itemIcons: []
   whatIsMovable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   extraFrontScanDistance: 0.2
   playerWidth: 0.4
   pushSpeed: 1

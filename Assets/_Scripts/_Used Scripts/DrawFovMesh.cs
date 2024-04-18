@@ -82,7 +82,7 @@ public class DrawFovMesh : MonoBehaviour
                                                   0,                                                                // y
                                                   Mathf.Sin(Mathf.Deg2Rad * a) * Radius);  // z
 
-            a += segmentAngle; print(a);
+            a += segmentAngle; //print(a);
 
             verts[i + 1] = new Vector3(Mathf.Cos(Mathf.Deg2Rad * a) * Radius, // x
                                                       0,                                                                // y

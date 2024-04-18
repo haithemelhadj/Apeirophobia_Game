@@ -419,8 +419,13 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     #region sprint handler
     [SerializeField] float SprintSpeed = 10f;
+    public bool canSprint;
     private void DoSprint(InputAction.CallbackContext context)
     {
+        if(!canSprint)
+        {
+            return;
+        }
         if (!isGrounded || playerState != Pstate.standing)
             return;
         //sprint state
@@ -479,7 +484,7 @@ public class PlayerMovementTest1 : MonoBehaviour
             return;
         }
 
-        if (!isGrounded || playerState == Pstate.crouching)
+        if (!isGrounded || playerState == Pstate.crouching || playerState == Pstate.pushing) 
             return;
 
         if (Time.time - LastTouchGroundTime < landingDuration)

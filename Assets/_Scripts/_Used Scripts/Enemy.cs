@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
     //bool playerInSightRange;// = Physics.CheckSphere(transform.position, sightRange, playerLayer);
 
     public Material fovMaterial;
+    //public Material CircleZoneMaterial;
+    
+    public CircleCollision circleCollision;
 
 
     public float currSpeed;
@@ -51,7 +54,7 @@ public class Enemy : MonoBehaviour
         {
             Patroling();
         }
-        else if (playerInSightRange)
+        if (playerInSightRange || circleCollision.isCollidingWithPlayer)
         {
             ChasePlayer();
         }
@@ -72,6 +75,7 @@ public class Enemy : MonoBehaviour
     private void Patroling()
     {
         fovMaterial.color = patrolColor;
+        //CircleZoneMaterial.color = patrolColor;
         if (!walkPointSet)
         {
             //SearchWalkPoint();
@@ -135,9 +139,14 @@ public class Enemy : MonoBehaviour
 
     private void ChasePlayer()
     {
+        //look at player
         fovMaterial.color = chaseColor;
+        //CircleZoneMaterial.color = chaseColor;
         navAgent.speed = runSpeed;
         animator.SetFloat("Speed", runSpeed);
+        Vector3 direction = player.position - transform.position;
+        transform.forward = Vector3.Slerp(transform.forward, direction.normalized, Time.deltaTime * 20);
+        //transform.LookAt(player);
         navAgent.SetDestination(player.position);
         //animator.SetFloat("Velocity", 0.6f);
         navAgent.isStopped = false; // Add this line
@@ -211,6 +220,7 @@ public class Enemy : MonoBehaviour
 
     #endregion
 
+    
 
     #region extra
     //  private void AttackPlayer()
