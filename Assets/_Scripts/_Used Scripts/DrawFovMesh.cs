@@ -21,11 +21,13 @@ public class DrawFovMesh : MonoBehaviour
 
     private float actualAngle;
 
+    public float coifissent;
+
     public Material mat;
 
     void Start()
     {
-        Radius = enemyScript.radius * 6;
+        Radius = enemyScript.radius * coifissent;
         angle = enemyScript.fovAngle * 0.5f;
 
         var MeshF = gameObject.AddComponent<MeshFilter>();

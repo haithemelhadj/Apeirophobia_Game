@@ -65,9 +65,9 @@ Material:
     - _offsetY: 1
     - _width: 0.6
     m_Colors:
-    - _DotsColor: {r: 0.018275505, g: 0.14761648, b: 0.88054806, a: 1}
+    - _DotsColor: {r: 0, g: 0, b: 0, a: 1}
     - _NoiseSpeed: {r: 0, g: 0.2, b: 0, a: 0}
-    - _Tiling: {r: 0.83, g: 0.81, b: 0, a: 0}
+    - _Tiling: {r: 14.32, g: 15.49, b: 0, a: 0}
     - _pos: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3834174928042909853
