@@ -8095,6 +8095,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7657413881287231620, guid: 414e5813bb22fbd47bae0335196c0cb6,
         type: 3}
+      propertyPath: canSprint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657413881287231620, guid: 414e5813bb22fbd47bae0335196c0cb6,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657413881287231620, guid: 414e5813bb22fbd47bae0335196c0cb6,
+        type: 3}
+      propertyPath: CrouchSpeed
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657413881287231620, guid: 414e5813bb22fbd47bae0335196c0cb6,
+        type: 3}
       propertyPath: scrollSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -9251,7 +9266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719170649}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13610813, y: 0.00000001704626, z: -0.0000000023419289, w: 0.990694}
+  m_LocalRotation: {x: 0.13610813, y: -0.000000017046256, z: 0.0000000023419282, w: 0.990694}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

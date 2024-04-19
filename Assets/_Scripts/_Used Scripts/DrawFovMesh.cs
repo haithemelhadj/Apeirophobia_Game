@@ -43,6 +43,8 @@ public class DrawFovMesh : MonoBehaviour
 
         //BUILD THE MESH
         buildMesh();
+        MeshMC.convex = true;
+        MeshMC.isTrigger = true;
 
         MeshMC.sharedMesh = myMesh;
     }
