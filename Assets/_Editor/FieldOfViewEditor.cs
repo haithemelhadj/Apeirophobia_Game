@@ -4,6 +4,8 @@ using UnityEngine;
 [CustomEditor(typeof(Enemy))]
 public class FieldOfViewEditor : Editor
 {
+    public Enemy enemy;
+    public AiAgentTry3 aiAgent;
     //public Transform fovTransform;
     private void OnSceneGUI()
     {

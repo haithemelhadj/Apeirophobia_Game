@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
         }
 
 
-        float distanceToWalkPoint = Vector3.Distance( transform.position , walkPoint);
+        //float distanceToWalkPoint = Vector3.Distance( transform.position , walkPoint);
         //animator.SetFloat("Velocity", 0.2f);
 
         if (Vector3.Distance(transform.position, walkPoint) < 1f)
@@ -157,6 +157,7 @@ public class Enemy : MonoBehaviour
     [Header("Field of View")]
     public float radius;
     [Range(0, 180)] public float fovAngle;
+    public Transform fovChild;
 
     public GameObject playerRef;
     private Transform lastPlayerSeenPosition;
@@ -179,9 +180,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     private void FieldOfViewCheck()
     {
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+        Collider[] rangeChecks = Physics.OverlapSphere(fovChild.position, radius, targetMask);
 
         if (rangeChecks.Length != 0)
         {
@@ -191,7 +193,7 @@ public class Enemy : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                if (!Physics.Raycast(fovChild.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     playerInSightRange = true;
                     lastPlayerSeenPosition = playerRef.transform;

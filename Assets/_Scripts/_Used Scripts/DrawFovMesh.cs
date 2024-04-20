@@ -5,13 +5,14 @@ using UnityEngine;
 public class DrawFovMesh : MonoBehaviour
 {
     public Enemy enemyScript;
+    public AiAgentTry3 aiAgent;
 
 
     private Mesh myMesh;
-    public float Radius;
-    public float angle;
+    public float Radius;//-------------------------------------
+    public float angle;//-------------------------------------
 
-    public float segments = 2;
+    public float segments = 5;//-------------------------------------
     private float segmentAngle;
 
     private Vector3[] verts;
@@ -21,13 +22,13 @@ public class DrawFovMesh : MonoBehaviour
 
     private float actualAngle;
 
-    public float coifissent;
+    public float coifissent;//-------------------------------------
 
-    public Material mat;
+    public Material mat;//-------------------------------------
 
     void Start()
     {
-        Radius = enemyScript.radius * coifissent;
+        Radius = enemyScript.radius * coifissent * (1/enemyScript.gameObject.transform.localScale.x);// calculate the mech foc raduis
         angle = enemyScript.fovAngle * 0.5f;
 
         var MeshF = gameObject.AddComponent<MeshFilter>();
@@ -72,7 +73,7 @@ public class DrawFovMesh : MonoBehaviour
         // Initialise the Array to origin Points
         for (int i = 0; i < verts.Length; i++)
         {
-            verts[i] = new Vector3(0, 1, 0);
+            verts[i] = new Vector3(0, 0, 0);
             normals[i] = Vector3.up;
         }
 
@@ -86,7 +87,7 @@ public class DrawFovMesh : MonoBehaviour
                                                   0,                                                                // y
                                                   Mathf.Sin(Mathf.Deg2Rad * a) * Radius);  // z
 
-            a += segmentAngle; //print(a);
+            a += segmentAngle; 
 
             verts[i + 1] = new Vector3(Mathf.Cos(Mathf.Deg2Rad * a) * Radius, // x
                                                       0,                                                                // y
