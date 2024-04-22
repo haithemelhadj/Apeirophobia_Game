@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CircleCollision : MonoBehaviour
 {
+    public AiAgentTry3 aiAgent;
     #region collision
 
     public bool isCollidingWithPlayer;
@@ -13,6 +14,11 @@ public class CircleCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("ai is colliding with player");
+
+            aiAgent.canSeePlayer = true;
+            aiAgent.lastPlayerSeenPosition = aiAgent.playerRef.position;
+            aiAgent.suspisionTimer = aiAgent.suspisionTime;
+
             isCollidingWithPlayer = true;
         }
     }
@@ -22,6 +28,7 @@ public class CircleCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("ai is not colliding with player");
+            
             isCollidingWithPlayer = false;
         }
     }
