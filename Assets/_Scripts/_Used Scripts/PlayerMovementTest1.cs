@@ -627,10 +627,10 @@ public class PlayerMovementTest1 : MonoBehaviour
     public bool isNearItem = false;
 
     //public List<GameObject> inventoryList;
-
+    
     [Header("Inventory Scroll")]
     public float scrollSpeed = 3;
-    private float selector = 0;
+    public float selector = 0;
     private float sum = 0;
 
     [Header("Inventory Visual")]
@@ -705,7 +705,7 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     private void OnCollect(InputAction.CallbackContext context)
     {
-        if (isNearItem)
+        if (isNearItem )
         {
             //rotate player to object
             Physics.Raycast(playerObj.position, item.transform.position - playerObj.position, out RaycastHit Hit);
@@ -723,7 +723,7 @@ public class PlayerMovementTest1 : MonoBehaviour
         }
     }
 
-    void AddItem(GameObject newItem)//add item to inventory
+    public void AddItem(GameObject newItem)//add item to inventory
     {
         //check for an empty slot
         for (int i = 0; i < inventory.Length; i++)
@@ -744,7 +744,7 @@ public class PlayerMovementTest1 : MonoBehaviour
         }
     }
 
-    void RemoveItem(GameObject newItem)//remove item from the player's vision
+    public void RemoveItem(GameObject newItem)//remove item from the player's vision
     {
         Debug.Log("item removed");
         newItem.SetActive(false);

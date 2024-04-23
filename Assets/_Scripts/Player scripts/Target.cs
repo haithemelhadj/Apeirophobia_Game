@@ -7,6 +7,9 @@ public class Target : MonoBehaviour
 {
     public LayerMask playerMask;
     public float length;
+    public GameObject UI;
+    public PlayerMovementTest1 PlayerScript;
+    private GameObject selectedItem;
     void Start()
     {
         
@@ -20,7 +23,30 @@ public class Target : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * length , Color.red);
         if (Physics.Raycast(ray, out hit, length, ~playerMask))
         {
-            Debug.Log(hit.transform.name);
+            Debug.Log(hit.collider.name);
+            if (hit.collider.tag == "Item")
+            {
+                UI.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    PlayerScript.item = hit.collider.gameObject;
+                    PlayerScript.AddItem(hit.collider.gameObject);
+                    //Destroy(hit.collider.gameObject);
+                    hit.collider.gameObject.SetActive(false);
+                }
+            }
+            
+
+        }
+        else
+        {
+            UI.SetActive(false);
+        }
+        selectedItem = PlayerScript.inventory[(int)PlayerScript.selector];
+        if (selectedItem != null)
+        {
+            Debug.Log(selectedItem.name);
         }
     }
+  
 }

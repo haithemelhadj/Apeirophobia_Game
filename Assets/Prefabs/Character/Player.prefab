@@ -1836,7 +1836,7 @@ MonoBehaviour:
   capsuleCollider: {fileID: 6333150602539956813}
   SprintSpeed: 4
   canSprint: 0
-  jumpForce: 7
+  jumpForce: 8
   LastTouchGroundTime: 0
   landingDuration: 0.03
   downGravityforce: 2

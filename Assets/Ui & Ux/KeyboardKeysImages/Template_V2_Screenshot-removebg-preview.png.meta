@@ -323,10 +323,10 @@ TextureImporter:
       name: Template_V2_Screenshot-removebg-preview_10
       rect:
         serializedVersion: 2
-        x: 364
-        y: 164
-        width: 155
-        height: 81
+        x: 366
+        y: 168
+        width: 35
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

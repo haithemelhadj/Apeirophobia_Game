@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Moveable
   - Ladder
+  - questItem
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Ledge
   - Player
   - Ai
-  - 
+  - Bookshelf
   - 
   - 
   - 
