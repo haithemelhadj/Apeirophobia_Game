@@ -97,7 +97,7 @@ public class AiAgentTry3 : MonoBehaviour
         if (canSeePlayer)
         {
             //set material color
-            //this.fovMaterial.color = chaseColor;
+            this.fovMaterial.color = chaseColor;
             //set run speed
             navAgent.speed = runSpeed;
             //set animation in blend tree
@@ -108,7 +108,7 @@ public class AiAgentTry3 : MonoBehaviour
         {
             //set material color            
             mesh.SetColors(new List<Color> { chaseColor });
-            //this.fovMaterial.color = searchColor;
+            this.fovMaterial.color = searchColor;
             //set run speed
             navAgent.speed = walkSpeed;
             //set animation in blend tree
@@ -118,7 +118,7 @@ public class AiAgentTry3 : MonoBehaviour
         else
         {
             //set material color            
-            //this.fovMaterial.color = patrolColor;
+            this.fovMaterial.color = patrolColor;
             Patroling();
         }
     }
@@ -356,7 +356,7 @@ public class AiAgentTry3 : MonoBehaviour
         var MeshF = gameObject.AddComponent<MeshFilter>();
         var MeshR = gameObject.AddComponent<MeshRenderer>();
         //var MeshMC = gameObject.AddComponent<MeshCollider>();
-        //MeshR.material = fovMaterial;
+        MeshR.material = fovMaterial;
         //go.renderer.material.mainTexture = Resources.Load("glass", typeof(Texture2D));
         //AssetDatabase.CreateAsset(material, "Assets/MyMaterial.mat");
 
