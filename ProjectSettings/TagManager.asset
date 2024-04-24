@@ -9,6 +9,12 @@ TagManager:
   - Moveable
   - Ladder
   - questItem
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - Frames
   layers:
   - Default
   - TransparentFX
