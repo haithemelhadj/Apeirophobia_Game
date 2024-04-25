@@ -1750,6 +1750,7 @@ GameObject:
   - component: {fileID: 2537956001247972326}
   - component: {fileID: 7657413881287231620}
   - component: {fileID: 6320432015050160710}
+  - component: {fileID: 6012439490738502188}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1860,6 +1861,7 @@ MonoBehaviour:
   item: {fileID: 0}
   isNearItem: 0
   scrollSpeed: 3
+  selector: 0
   selectorImg: {fileID: 0}
   toolbarSlots: []
   itemIcons: []
@@ -1893,6 +1895,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   length: 5
+  UI: {fileID: 0}
+  PlayerScript: {fileID: 0}
+  images: []
+  numOfImgsDone: 0
+  door: {fileID: 0}
+--- !u!114 &6012439490738502188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309811076528878812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97f3cf939dbfa643b19f93a5049208f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8370798858204029096
 GameObject:
   m_ObjectHideFlags: 0

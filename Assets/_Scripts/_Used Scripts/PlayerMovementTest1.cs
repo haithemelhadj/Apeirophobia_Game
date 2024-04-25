@@ -961,6 +961,21 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     #endregion
 
+    #region Loss
+    public void Lose()
+    {
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("LowestPoint"))
+        {
+            PlayerLoss.Loss();
+        }
+    }
+    #endregion
+
     //add items to inventory
     //use scriptable objects to add count and usabilty 
     //add list

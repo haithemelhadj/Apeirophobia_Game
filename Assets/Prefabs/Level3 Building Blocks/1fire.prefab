@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4742577372670930216}
   - component: {fileID: 307027177484691660}
   - component: {fileID: 1432885260764871860}
-  m_Layer: 0
+  - component: {fileID: 9180204303707923608}
+  m_Layer: 12
   m_Name: fire  (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,6 +106,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9180204303707923608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866012037066523479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5d1582bb96b0f4b9e88f2cf62cc8c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1871946035092403938
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3561675804729690891}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 1fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +163,8 @@ GameObject:
   - component: {fileID: 2976528693012595029}
   - component: {fileID: 2716487926511883487}
   - component: {fileID: 4033473305837548954}
-  m_Layer: 0
+  - component: {fileID: 3246442926811891321}
+  m_Layer: 12
   m_Name: 'fire '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,3 +257,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3246442926811891321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826575135039344361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5d1582bb96b0f4b9e88f2cf62cc8c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -16,6 +16,8 @@ public class AiAgentTry3 : MonoBehaviour
     [Header("Bools")]
     public bool canSeePlayer;
     public Vector3 lastPlayerSeenPosition;
+    [Header("Level 3")]
+    public bool isInLevelThree;
 
     [Header("settings")]
     [Range(0f, 180f)] public float fovAngle;
@@ -83,18 +85,34 @@ public class AiAgentTry3 : MonoBehaviour
     #region start & update
     private void Awake()
     {
-        InitializeMeshCreation();
+        if (!isInLevelThree)
+        {
+            InitializeMeshCreation();            
+        }
         playerRef = GameObject.Find("Player").transform;
         navAgent = GetComponent<NavMeshAgent>();
         //StartCoroutine(FOVRoutine());
+        lastPlayerSeenPosition = playerRef.position;
     }
     private void Update()
     {
-        //See();
-        CreateMesh();
-        suspisionCooldown();
-
-        if (canSeePlayer)
+        if (!isInLevelThree)
+        {
+            CreateMesh();
+            suspisionCooldown();
+        }
+        //Level 3 Code
+        if (isInLevelThree)
+        {
+            DetectToDestroy();
+            navAgent.SetDestination(playerRef.position);
+            navAgent.speed = runSpeed;
+            animator.SetFloat("Speed", runSpeed);
+            //look faster at player
+            Vector3 direction = playerRef.position - transform.position;
+            transform.forward = Vector3.Slerp(transform.forward, direction.normalized, Time.deltaTime * chaseRotation);
+        }
+        else if (canSeePlayer) 
         {
             //set material color
             this.fovMaterial.color = chaseColor;
@@ -463,6 +481,15 @@ public class AiAgentTry3 : MonoBehaviour
         #endregion
     }
 
-
+    public LayerMask blockLayer;
+    public float destroyDistance;
+    private void DetectToDestroy()
+    {
+        Debug.DrawRay(transform.position + Vector3.up, Vector3.forward * destroyDistance, Color.black);
+        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, Vector3.forward, out RaycastHit ray, destroyDistance, blockLayer)) 
+        {
+            Destroy(ray.collider.gameObject);
+        }
+    }
 
 }
