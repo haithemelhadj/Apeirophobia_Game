@@ -1,9 +1,10 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Enemy))]
-public class FieldOfViewEditor : Editor
+//[CustomEditor(typeof(Enemy))]
+public class FieldOfViewEditor : MonoBehaviour
 {
+    /*
     public Enemy enemy;
     public AiAgentTry3 aiAgent;
     //public Transform fovTransform;
@@ -34,4 +35,5 @@ public class FieldOfViewEditor : Editor
 
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
+    */
 }

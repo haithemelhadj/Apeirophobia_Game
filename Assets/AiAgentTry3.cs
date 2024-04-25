@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.XR;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+//using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class AiAgentTry3 : MonoBehaviour
 {
@@ -107,7 +107,7 @@ public class AiAgentTry3 : MonoBehaviour
         else if (suspisionTimer > 0)
         {
             //set material color            
-            mesh.SetColors(new List<Color> { chaseColor });
+            //mesh.SetColors(new List<Color> { chaseColor });
             this.fovMaterial.color = searchColor;
             //set run speed
             navAgent.speed = walkSpeed;
