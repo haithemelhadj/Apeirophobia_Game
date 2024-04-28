@@ -16,7 +16,7 @@ public class CircleCollision : MonoBehaviour
             Debug.Log("ai is colliding with player");
 
             aiAgent.canSeePlayer = true;
-            aiAgent.lastPlayerSeenPosition = aiAgent.playerRef.position;
+            aiAgent.lastPlayerSeenPosition = aiAgent.playerRefFlastPos;
             aiAgent.suspisionTimer = aiAgent.suspisionTime;
 
             isCollidingWithPlayer = true;

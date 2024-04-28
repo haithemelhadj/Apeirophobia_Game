@@ -1994,9 +1994,11 @@ MonoBehaviour:
   navAgent: {fileID: 571897983582069263}
   animator: {fileID: 2810533987493690537}
   playerRef: {fileID: 0}
+  playerRefFlastPos: {x: 0, y: 0, z: 0}
   eyes: {fileID: 7039455647690979764}
   canSeePlayer: 0
   lastPlayerSeenPosition: {x: 0, y: 0, z: 0}
+  isInLevelThree: 0
   fovAngle: 70
   segments: 40
   fovRadius: 5
@@ -2024,11 +2026,15 @@ MonoBehaviour:
   - {fileID: 0}
   currentPoint: 0
   waitTime: 0
-  searchPointRange: 3
+  searchPointRange: 1
   suspisionTime: 10
   suspisionTimer: 0
   chaseRotation: 20
   rayHits: []
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  destroyDistance: 0
 --- !u!1 &9201776852864702546
 GameObject:
   m_ObjectHideFlags: 0

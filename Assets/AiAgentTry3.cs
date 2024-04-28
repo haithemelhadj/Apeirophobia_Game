@@ -11,6 +11,7 @@ public class AiAgentTry3 : MonoBehaviour
     public NavMeshAgent navAgent;
     public Animator animator;
     public Transform playerRef;
+    public Vector3 playerRefFlastPos;
     public Transform eyes;
 
     [Header("Bools")]
@@ -85,6 +86,8 @@ public class AiAgentTry3 : MonoBehaviour
     #region start & update
     private void Awake()
     {
+        playerRefFlastPos = new Vector3(playerRef.position.x, transform.position.y, playerRef.position.z);
+        
         if (!isInLevelThree)
         {
             InitializeMeshCreation();            
@@ -92,10 +95,11 @@ public class AiAgentTry3 : MonoBehaviour
         playerRef = GameObject.Find("Player").transform;
         navAgent = GetComponent<NavMeshAgent>();
         //StartCoroutine(FOVRoutine());
-        lastPlayerSeenPosition = playerRef.position;
+        lastPlayerSeenPosition = playerRefFlastPos;
     }
     private void Update()
     {
+            playerRefFlastPos = new Vector3(playerRef.position.x, transform.position.y, playerRef.position.z);
         if (!isInLevelThree)
         {
             CreateMesh();
@@ -105,11 +109,11 @@ public class AiAgentTry3 : MonoBehaviour
         if (isInLevelThree)
         {
             DetectToDestroy();
-            navAgent.SetDestination(playerRef.position);
+            navAgent.SetDestination(playerRefFlastPos);
             navAgent.speed = runSpeed;
             animator.SetFloat("Speed", runSpeed);
             //look faster at player
-            Vector3 direction = playerRef.position - transform.position;
+            Vector3 direction = playerRefFlastPos - transform.position;
             transform.forward = Vector3.Slerp(transform.forward, direction.normalized, Time.deltaTime * chaseRotation);
         }
         else if (canSeePlayer) 
@@ -130,7 +134,7 @@ public class AiAgentTry3 : MonoBehaviour
             //set run speed
             navAgent.speed = walkSpeed;
             //set animation in blend tree
-            animator.SetFloat("Speed", 0f);
+            animator.SetFloat("Speed", navAgent.speed);
             Search();
         }
         else
@@ -198,7 +202,7 @@ public class AiAgentTry3 : MonoBehaviour
     #region search
     private void Search()
     {
-        return;
+        //return;
         if (!walkPointSet)
         {
             float randomZ = Random.Range(-searchPointRange, searchPointRange);
@@ -256,7 +260,7 @@ public class AiAgentTry3 : MonoBehaviour
     private void Chase()
     {
         //look faster at player
-        Vector3 direction = playerRef.position - transform.position;
+        Vector3 direction = playerRefFlastPos - transform.position;
         transform.forward = Vector3.Slerp(transform.forward, direction.normalized, Time.deltaTime * chaseRotation);
         //follow player
         navAgent.SetDestination(lastPlayerSeenPosition);
@@ -414,7 +418,7 @@ public class AiAgentTry3 : MonoBehaviour
                 {
                     Debug.Log("hit player");
                     canSeePlayer = true;
-                    lastPlayerSeenPosition = playerRef.position;
+                    lastPlayerSeenPosition = playerRefFlastPos;
                     suspisionTimer = suspisionTime;
                 }
                 

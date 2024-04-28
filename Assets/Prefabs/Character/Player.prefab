@@ -1820,7 +1820,7 @@ MonoBehaviour:
   inputDir: {x: 0, y: 0, z: 0}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 265
+    m_Bits: 4361
   extraScanDistance: 0.05
   playerHeight: 1
   playerCamera: {fileID: 0}
