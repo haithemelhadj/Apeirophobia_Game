@@ -26,7 +26,7 @@ public class Playbutton : MonoBehaviour
     }
     public void PlayPressed()
     {
-        canva.disableButtons();
+        //canva.disableButtons();
         Invoke("PlayTimeline", 1f);
         Invoke("gotoScene", TimeLineLength +1f);
         
