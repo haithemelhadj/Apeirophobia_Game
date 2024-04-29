@@ -84,6 +84,7 @@ public class PlayerMovementTest1 : MonoBehaviour
     {
 
     }
+
     private void Update()
     {
         inputDir = InputDir();
@@ -534,6 +535,7 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     public Vector3 offsetPub;
 
+    public Vector3 hangingPosition;
     void LedgeGrab()
     {
         if (rb.velocity.y < 0 && !isHanging && !isClimbing)
@@ -558,42 +560,53 @@ public class PlayerMovementTest1 : MonoBehaviour
                     //set hanging state
                     playerState = Pstate.hanging;
                     isHanging = true;
+                    //set camera state
                     CameraSystem(playerState);
                     //set animation
                     animator.SetBool("Hanging", isHanging);
-                    //disable collider
-                    //capsuleCollider.enabled = false;
-                    //move to offeset
-                    //MoveToOffset(Vector3.zero);//------------------------------------------------------------------------------------------
-                    //move player to ledge
 
                     //get ground ledge
                     Vector3 hangPos = new Vector3(fwdHit.point.x, downHit.point.y, fwdHit.point.z);
                     Debug.Log("hangpos1=" + hangPos);
+
+
                     //get offset
-                    // offset = transform.forward * -offsetPub.z + transform.up * -offsetPub.y;
-
-                    //Vector3 offset = playerObj.forward * -0.2f + playerObj.up * -0.5f;
-                    //add offset to ledge
-                    //Debug.Log("offset1="+offset);
-                    //hangPos += offset;
-                    Debug.Log("hangpos2=" + hangPos);
-
-                    //offsetPub = new Vector3(0, -0.1f, -0.2f);// playerObj.forward * -playerWidth*0.5f;
-                    offsetPub = playerObj.forward * -playerWidth * 0.5f + -playerObj.up * 0.1f;
+                    offsetPub = playerObj.forward * -playerWidth * 0.5f + Vector3.up * -0.1f;
+                    Debug.Log("offset= " + offsetPub);
                     //move player to ledge
                     transform.position = hangPos + offsetPub;
-                    Debug.Log("ayyyyyyyyyyyyyy");
                     //rotate player 
                     playerObj.transform.forward = -fwdHit.normal;
+
+                    //save hanging position to fix if ruined
+                    hangingPosition = transform.position;
                     //set other constraints
+                    
+                    
 
                 }
             }
-            //bugs in this code:            
-            //has a bug when holding jump while hanging
         }
     }
+
+
+    private void LateUpdate()
+    {
+        LedgeGrabBugFix();
+    }
+
+    private void LedgeGrabBugFix()
+    {
+        if (playerState == Pstate.hanging)
+        {
+            if (transform.position.y != hangingPosition.y)
+            {
+                transform.position = hangingPosition;
+            }
+            Debug.Log(transform.position);
+        }
+    }
+
 
     #endregion
 
