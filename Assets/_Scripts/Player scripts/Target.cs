@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-
+using UnityEngine.UI;
 public class Target : MonoBehaviour
 {
     public LayerMask playerMask;
@@ -13,6 +13,7 @@ public class Target : MonoBehaviour
     public GameObject[] images;
     public int numOfImgsDone;
     public GameObject door;
+    public GameObject PuzzleUI;
     void Start()
     {
         
@@ -93,7 +94,20 @@ public class Target : MonoBehaviour
 
                 }
             }
-            
+            else if (hit.collider.tag == "lockedDoor")
+            {
+                UI.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    PuzzleUI.SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
+            }
+            else
+            {
+                UI.SetActive(false);
+            }
+
 
         }
         else
