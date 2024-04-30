@@ -82,11 +82,12 @@ public class PlayerMovementTest1 : MonoBehaviour
     }
     private void Start()
     {
-
+        PauseMenu.SetActive(false);
     }
 
     private void Update()
     {
+        PauseGame();
         inputDir = InputDir();
         isGrounded = GroundCheck();
         if (!isGrounded)
@@ -136,8 +137,8 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     private void InputEventsUnsubscriptions()
     {
-        playerInputs.Player.Grab.started -= OnGrab;
         playerInputs.Player.Jump.started -= OnJump;
+        playerInputs.Player.Grab.started -= OnGrab;
         playerInputs.Player.Scroll.started -= Scroll;
         playerInputs.Player.Throw.started -= OnThrow;
         playerInputs.Player.Crouch.started -= DoCrouch;
@@ -169,6 +170,10 @@ public class PlayerMovementTest1 : MonoBehaviour
         if (playerState == Pstate.pushing)
         {
             animator.SetFloat("VelocityH", inputDir.magnitude * CurrMaxMoveSpeed * MathF.Sign(move.ReadValue<Vector2>().y));
+        }
+        else if(playerState == Pstate.crouching)
+        {
+            animator.SetFloat("VelocityH", inputDir.magnitude);
         }
         else
         {
@@ -974,6 +979,33 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     #endregion
 
+    #region pause menu
+    public GameObject PauseMenu;
+    public GameObject resumeButton;
+    public GameObject checkpointButton;
+
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        PauseMenu.SetActive(true);
+        resumeButton.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            PauseMenu.SetActive(true);
+            resumeButton.SetActive(true);
+        }
+    }
+    #endregion
+
     #region Loss
     public void Lose()
     {
@@ -984,7 +1016,8 @@ public class PlayerMovementTest1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("LowestPoint"))
         {
-            PlayerLoss.Loss();
+            GameOver();
+            //PlayerLoss.Loss();
         }
     }
     #endregion

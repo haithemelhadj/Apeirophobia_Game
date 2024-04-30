@@ -16,6 +16,7 @@ TagManager:
   - 5
   - Frames
   - LowestPoint
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

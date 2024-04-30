@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -87,8 +88,11 @@ public class AiAgentTry3 : MonoBehaviour
     private void Awake()
     {
         playerRefFlastPos = new Vector3(playerRef.position.x, transform.position.y, playerRef.position.z);
-        
-        if (!isInLevelThree)
+        if (isInLevelThree)
+        {
+            //cinemachineCamera = GetComponent<CinemachineVirtualCamera>();
+        }
+        else
         {
             InitializeMeshCreation();            
         }
@@ -99,7 +103,7 @@ public class AiAgentTry3 : MonoBehaviour
     }
     private void Update()
     {
-            playerRefFlastPos = new Vector3(playerRef.position.x, transform.position.y, playerRef.position.z);
+        playerRefFlastPos = new Vector3(playerRef.position.x, transform.position.y, playerRef.position.z);
         if (!isInLevelThree)
         {
             CreateMesh();
@@ -324,33 +328,40 @@ public class AiAgentTry3 : MonoBehaviour
     */
     #endregion
 
-    //public AiAgentTry3 aiAgent;
-    /*
-    [HideInInspector] public int segments = 5;
-    [HideInInspector] public float fovRadius = 5;
-    [HideInInspector] public float angle;
-    [HideInInspector] public Material mat;
-    [HideInInspector] public LayerMask obstructionMask;
-    */
 
-    //public int segments = 5;
-    //public float fovRadius = 5;
-    [Header("Mesh")]
-    //public float fovAngle;
-    //public Material mat;
-    //public LayerMask obstructionMask;
-    
+    #region Camera Shake
+    [Header ("Camera Shake")]
+    public float intensity;
+    public CinemachineVirtualCamera cinemachineCamera;
+    public void shakeCam()
+    {
+        if (isInLevelThree)
+        {
+            cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
+            Invoke("CancleCamShake", 0.08f);
 
+        }
+    }
+    public void CancleCamShake()
+    {
+        cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0f;
+
+    }
+    #endregion
+
+
+    #region Called Functions
+    RaycastHit hit;
     public Vector3[] rayHits;
     float anglePerSegment;
 
+    [Header("Mesh")]
+    private Mesh mesh;
     Vector3[] vertics;
     Vector2[] uvs;
     int[] triangles;
 
 
-    RaycastHit hit;
-    private Mesh mesh;
 
     private void InitializeMeshCreation()
     {
@@ -496,4 +507,5 @@ public class AiAgentTry3 : MonoBehaviour
         }
     }
 
+    #endregion
 }
