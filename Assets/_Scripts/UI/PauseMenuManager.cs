@@ -8,12 +8,7 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject resumeButton;
 
-    private void Awake()
-    {
-        playerRef = GameObject.Find("Player").transform;
-        checkpoint = playerRef;
-        //playerRef=find
-    }
+    
 
     public void GameOver()
     {
@@ -27,10 +22,16 @@ public class PauseMenuManager : MonoBehaviour
         resumeButton.SetActive(true);
     }
 
-    
+    /*
     //set checkpoints in playerscript
     public Transform playerRef;
     public Transform checkpoint;
+    private void Awake()
+    {
+        playerRef = GameObject.Find("Player").transform;
+        checkpoint = playerRef;
+        //playerRef=find
+    }
     public void RestartFromCheckpoint()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -40,7 +41,7 @@ public class PauseMenuManager : MonoBehaviour
         playerRef.transform.rotation = checkpoint.rotation;
         PauseMenu.SetActive(false);
     }
-
+    */
 
     //--------------------------done 
     public void Restart()

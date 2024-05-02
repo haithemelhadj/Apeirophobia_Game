@@ -13,7 +13,7 @@ public class CheckpointScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            pauseMenuManager.checkpoint = transform;
+            //pauseMenuManager.checkpoint = transform;
         }
     }
 }
