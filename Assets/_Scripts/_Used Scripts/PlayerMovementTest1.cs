@@ -82,7 +82,8 @@ public class PlayerMovementTest1 : MonoBehaviour
     }
     private void Start()
     {
-        PauseMenu.SetActive(false);
+
+        //PauseMenu.SetActive(false);
     }
 
     private void Update()

@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Gameplay/MainMenu.unity
+    path: Assets/_Scenes/Gameplay/MainMenu.unity
     guid: a4d8eeaa516dedd42b33015560465197
   - enabled: 1
-    path: Assets/Scenes/Gameplay/Aziz Scene.unity
+    path: Assets/_Scenes/Gameplay/Aziz Scene.unity
     guid: f67c5f386a2b81848b483fc60214090c
   m_configObjects: {}
