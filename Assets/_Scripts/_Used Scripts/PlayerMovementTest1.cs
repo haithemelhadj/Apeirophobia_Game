@@ -184,43 +184,6 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     #endregion
 
-    #region inputs manager
-
-    //player horizental input value
-    private Vector3 InputDir()//return the horizontal input direction based on camera
-    {
-        Vector3 dir = Vector3.zero;
-        if (isHanging) //can't move while hanging
-        {
-            return dir;
-        }
-        if (Time.time - LastTouchGroundTime < landingDuration && isGrounded) //can't move when landing
-        {
-            return dir;
-        }
-
-        if (isClimbing)
-        {
-            dir += move.ReadValue<Vector2>().y * Vector3.up;
-            return dir;
-        }
-        if (playerState == Pstate.pushing)
-        {
-            if (move.ReadValue<Vector2>().y > 0)
-                dir += move.ReadValue<Vector2>().y * playerObj.forward;
-            return dir;
-        }
-
-
-        dir += move.ReadValue<Vector2>().x * GetRightDirection();
-        dir += move.ReadValue<Vector2>().y * GetForwardDirection();
-        return dir;
-    }
-
-
-
-    #endregion
-
     #region camera rotaion
     [SerializeField] Camera playerCamera;
 
@@ -296,6 +259,7 @@ public class PlayerMovementTest1 : MonoBehaviour
 
 
 
+
     #region player movement System
 
     // player state exists to check if the player is crouching or sprinting or walking, i don't like it, i think i'll go to a bool based system
@@ -327,6 +291,44 @@ public class PlayerMovementTest1 : MonoBehaviour
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
         }
     }
+
+    #endregion
+
+    #region inputs manager
+
+    //player horizental input value
+    private Vector3 InputDir()//return the horizontal input direction based on camera
+    {
+        Vector3 dir = Vector3.zero;
+        if (isHanging) //can't move while hanging
+        {
+            return dir;
+        }
+        if (Time.time - LastTouchGroundTime < landingDuration && isGrounded) //can't move when landing
+        {
+            return dir;
+        }
+
+        if (isClimbing)
+        {
+            dir += move.ReadValue<Vector2>().y * Vector3.up;
+            return dir;
+        }
+        if (playerState == Pstate.pushing)
+        {
+
+            if (move.ReadValue<Vector2>().y > 0)
+                dir += move.ReadValue<Vector2>().y * playerObj.forward;
+            return dir;
+        }
+
+
+        dir += move.ReadValue<Vector2>().x * GetRightDirection();
+        dir += move.ReadValue<Vector2>().y * GetForwardDirection();
+        return dir;
+    }
+
+
 
     #endregion
 
@@ -799,75 +801,6 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     #endregion
 
-    #region Interactions
-
-    #region Puch & Pull
-
-    //ray cast in front of the player to check for a movable object
-    //if there is allow for holding object and enter moving object state if a button is pressed
-    //when in moving object state only allow for 1 axis movement, get it's value and turn it into blend tree animation
-    //
-    // grounded check
-    [Header("Move Object")]
-    [SerializeField] LayerMask whatIsMovable;
-    [SerializeField] float extraFrontScanDistance = 0.1f;
-    [SerializeField] float playerWidth = 0.4f;
-
-    [SerializeField] float pushSpeed = 1;
-    [SerializeField] Transform movedObject;
-    public Vector3 movedObjectOffset;
-    private void OnGrab(InputAction.CallbackContext context)
-    {
-        //check if there is a movable object in front of the player
-        RaycastHit hit;
-        bool canMove = Physics.Raycast(transform.position, playerObj.forward, out hit, playerWidth * 0.5f + extraFrontScanDistance, whatIsMovable);
-        //if player is already pushing stop pushing
-        if (playerState == Pstate.pushing)
-        {
-            //set player state
-            playerState = Pstate.standing;
-            CameraSystem(playerState);
-            //remove movement restrictions
-            CurrMaxMoveSpeed = walkSpeed;
-
-            //set animator back to walking
-            animator.SetTrigger("Stand");
-            //remove parent
-            movedObject.parent = null;
-            movedObject = null;
-
-
-        }
-        else if (canMove && isGrounded)
-        {
-            //move to offeset
-            //MoveToOffset(Vector3.zero);//------------------------------------------------------------------------------------------
-
-            //move object with player
-            movedObject = hit.transform;
-            //set player state
-            playerState = Pstate.pushing;
-            CameraSystem(playerState);
-            //set animator
-            animator.SetTrigger("Grab");
-            //restrict movement
-            CurrMaxMoveSpeed = pushSpeed;
-            //set rotation
-            playerObj.forward = -hit.normal;
-
-            //get offset position (x,player y, raycast z)
-
-            transform.position += movedObjectOffset.z * playerObj.forward;
-
-            //make the object the child of the player
-            movedObject.SetParent(this.transform);
-
-        }
-    }
-
-    #endregion
-
-
     #region Climb Ladder
     [Header("Ladder Climb")]
     public bool isNearLadder = false;
@@ -970,13 +903,69 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     #endregion
 
-    //speak with npc if there is
+    #region Puch & Pull
 
-    //open door if there is
+    //ray cast in front of the player to check for a movable object
+    //if there is allow for holding object and enter moving object state if a button is pressed
+    //when in moving object state only allow for 1 axis movement, get it's value and turn it into blend tree animation
+    //
+    // grounded check
+    [Header("Move Object")]
+    [SerializeField] LayerMask whatIsMovable;
+    [SerializeField] float extraFrontScanDistance = 0.1f;
+    [SerializeField] float playerWidth = 0.4f;
 
-    #endregion
+    [SerializeField] float pushSpeed = 1;
+    [SerializeField] Transform movedObject;
+    public Vector3 movedObjectOffset;
+    private void OnGrab(InputAction.CallbackContext context)
+    {
+        //check if there is a movable object in front of the player
+        RaycastHit hit;
+        bool canMove = Physics.Raycast(transform.position, playerObj.forward, out hit, playerWidth * 0.5f + extraFrontScanDistance, whatIsMovable);
+        //if player is already pushing stop pushing
+        if (playerState == Pstate.pushing)
+        {
+            //set player state
+            playerState = Pstate.standing;
+            CameraSystem(playerState);
+            //remove movement restrictions
+            CurrMaxMoveSpeed = walkSpeed;
 
-    #region extra 
+            //set animator back to walking
+            animator.SetTrigger("Stand");
+            //remove parent
+            movedObject.parent = null;
+            movedObject = null;
+
+
+        }
+        else if (canMove && isGrounded)
+        {
+            //move to offeset
+            //MoveToOffset(Vector3.zero);//------------------------------------------------------------------------------------------
+
+            //move object with player
+            movedObject = hit.transform;
+            //set player state
+            playerState = Pstate.pushing;
+            CameraSystem(playerState);
+            //set animator
+            animator.SetTrigger("Grab");
+            //restrict movement
+            CurrMaxMoveSpeed = pushSpeed;
+            //set rotation
+            playerObj.forward = -hit.normal;
+
+            //get offset position (x,player y, raycast z)
+
+            transform.position += movedObjectOffset.z * playerObj.forward;
+
+            //make the object the child of the player
+            movedObject.SetParent(this.transform);
+
+        }
+    }
 
     #endregion
 
@@ -998,11 +987,13 @@ public class PlayerMovementTest1 : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
-            Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            PauseMenu.SetActive(true);
-            resumeButton.SetActive(true);
+            Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
+            Cursor.visible = !Cursor.visible;
+            Cursor.lockState = Cursor.lockState == CursorLockMode.None ? CursorLockMode.Locked : CursorLockMode.None;
+            //bool isActive = PauseMenu.active;
+            PauseMenu.SetActive(!PauseMenu.activeSelf);
+            resumeButton.SetActive(PauseMenu.activeSelf);
+
         }
     }
     #endregion
@@ -1022,6 +1013,23 @@ public class PlayerMovementTest1 : MonoBehaviour
         }
     }
     #endregion
+
+
+    #region extra 
+    #region Interactions
+
+
+
+
+    //speak with npc if there is
+
+    //open door if there is
+
+    #endregion
+
+    #endregion
+
+
 
     //add items to inventory
     //use scriptable objects to add count and usabilty 

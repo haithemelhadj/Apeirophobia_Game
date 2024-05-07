@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.XR;
@@ -8,6 +9,7 @@ using UnityEngine.XR;
 
 public class AiAgentTry3 : MonoBehaviour
 {
+    public bool usesMeshToDetect = true;
     [Header("refrences")]
     public NavMeshAgent navAgent;
     public Animator animator;
@@ -98,7 +100,7 @@ public class AiAgentTry3 : MonoBehaviour
         }
         playerRef = GameObject.Find("Player").transform;
         navAgent = GetComponent<NavMeshAgent>();
-        //StartCoroutine(FOVRoutine());
+        StartCoroutine(FOVRoutine());
         lastPlayerSeenPosition = playerRefFlastPos;
     }
     private void Update()
@@ -106,6 +108,10 @@ public class AiAgentTry3 : MonoBehaviour
         playerRefFlastPos = new Vector3(playerRef.position.x, transform.position.y, playerRef.position.z);
         if (!isInLevelThree)
         {
+            if(usesMeshToDetect)
+            {
+
+            }
             CreateMesh();
             suspisionCooldown();
         }
@@ -202,7 +208,7 @@ public class AiAgentTry3 : MonoBehaviour
     [Header("search")]
     public float searchPointRange;
     public float suspisionTime;
-    public float suspisionTimer;
+    public float suspisionTimer; 
     #region search
     private void Search()
     {
@@ -231,6 +237,7 @@ public class AiAgentTry3 : MonoBehaviour
             }
             else
             {
+                waitTime = suspisionTime / 2;
                 //set run speed
                 navAgent.speed = walkSpeed;
                 //set animation in blend tree
@@ -272,7 +279,7 @@ public class AiAgentTry3 : MonoBehaviour
     #endregion
     //------------------------------------------See---------------------
     #region See
-    /*
+    
     private IEnumerator FOVRoutine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
@@ -280,7 +287,10 @@ public class AiAgentTry3 : MonoBehaviour
         while (true)
         {
             yield return wait;
-            See();
+            if (!usesMeshToDetect)
+            {
+                See();
+            }
         }
     }
     private void See()
@@ -302,29 +312,39 @@ public class AiAgentTry3 : MonoBehaviour
 
             if(angleBetweenGuardAndPlayer < fovAngle / 2f)
             {
-                if(!Physics.Raycast(eyes.position, playerRef.position, obstructionMask))
+                Debug.DrawRay(eyes.position,   playerRef.position-transform.position, Color.green, 1f);
+                Debug.Log("drawing line");
+                if(!Physics.Raycast(eyes.position, playerRef.position-transform.position, out RaycastHit hiit, fovRadius, obstructionMask))
                 {
                     canSeePlayer = true;
+                    Debug.Log("can see player");
+
                     lastPlayerSeenPosition = playerRef.position;
                     suspisionTimer = suspisionTime;
+                    //Debug.Log(hiit.collider.gameObject.name);
 
                 }
                 else
                 {
+                    Debug.Log(hiit.collider.gameObject.name);
+                    Debug.Log("obstacle between us");
                     canSeePlayer = false;
                 }
             }
             else
             {
+                Debug.Log("close but not in front");
                 canSeePlayer = false;
             }
         }
         else
         {
+            Debug.Log("not even close");
             canSeePlayer = false;
         }
         
     }
+    /*
     */
     #endregion
 
@@ -412,7 +432,11 @@ public class AiAgentTry3 : MonoBehaviour
 
 
         //reset can see player before checking every frame
-        canSeePlayer = false;
+        if(usesMeshToDetect)
+        {
+            canSeePlayer = false;
+
+        }
 
         //send raycasts to get the hit positions
         for (int i = 0; i < rayHits.Length; i++)
@@ -425,7 +449,7 @@ public class AiAgentTry3 : MonoBehaviour
             else
             {
                 
-                if(Physics.Raycast(transform.position, firstVector, out hit, fovRadius, playerMask))
+                if(Physics.Raycast(transform.position, firstVector, out hit, fovRadius, playerMask) && usesMeshToDetect)
                 {
                     Debug.Log("hit player");
                     canSeePlayer = true;
