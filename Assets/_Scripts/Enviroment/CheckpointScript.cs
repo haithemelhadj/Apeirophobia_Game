@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheckpointScript : MonoBehaviour
 {
+    public bool isInLvlOne;
     public PauseMenuManager pauseMenuManager;
     private void Awake()
     {
@@ -11,9 +12,9 @@ public class CheckpointScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && isInLvlOne)
         {
-            //pauseMenuManager.checkpoint = transform;
+            pauseMenuManager.checkpoint = transform;
         }
     }
 }

@@ -14,6 +14,7 @@ public class Target : MonoBehaviour
     public int numOfImgsDone;
     public GameObject door;
     public GameObject PuzzleUI;
+    public GameObject level2door;
     void Start()
     {
         
@@ -102,13 +103,11 @@ public class Target : MonoBehaviour
                     PuzzleUI.SetActive(true);
                     UnityEngine.Cursor.lockState = CursorLockMode.None;
                 }
-            }
-            else
+            } else if(hit.collider.tag == "lever")
             {
-                UI.SetActive(false);
+                UI.SetActive(true);
+                level2door.SetActive(false);
             }
-
-
         }
         else
         {
