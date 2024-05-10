@@ -79,6 +79,7 @@ public class PlayerMovementTest1 : MonoBehaviour
         LockCursor();
         playerInputs = new PLayer_Inputs();
         CurrMaxMoveSpeed = walkSpeed;
+        
     }
     private void Start()
     {
@@ -88,6 +89,7 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("my player pos : " + transform.position);
         PauseGame();
         inputDir = InputDir();
         isGrounded = GroundCheck();
@@ -100,19 +102,21 @@ public class PlayerMovementTest1 : MonoBehaviour
             //Debug.Log("landed");
             //playerState = Pstate.standing;
         }
-
+        Debug.Log("1" + transform.position);
         VSpeedControl();
 
         LedgeGrab();
 
         ClimbLadder();
-
+        Debug.Log("1" + transform.position);
         //CameraManager();
 
         AnimatorUpdate();
         RotatePlayer();
+        Debug.Log("1" + transform.position);
         MovementDrag();
         HSpeedControl();
+        Debug.Log("1" + transform.position);
     }
     private void FixedUpdate()
     {
@@ -338,7 +342,7 @@ public class PlayerMovementTest1 : MonoBehaviour
     [SerializeField] float CurrMaxMoveSpeed;
     [SerializeField] float acceleration = 1;
     [SerializeField] float deceleration = 3;
-    [SerializeField] float walkSpeed = 5;
+    [SerializeField] public float walkSpeed = 5;
 
     private void MovePlayer()
     {
@@ -427,7 +431,7 @@ public class PlayerMovementTest1 : MonoBehaviour
     #endregion
 
     #region sprint handler
-    [SerializeField] float SprintSpeed = 10f;
+    public float SprintSpeed = 10f;
     public bool canSprint;
     private void DoSprint(InputAction.CallbackContext context)
     {
@@ -974,17 +978,14 @@ public class PlayerMovementTest1 : MonoBehaviour
     public GameObject resumeButton;
     public GameObject checkpointButton;
 
-    public void GameOver()
-    {
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        PauseMenu.SetActive(true);
-        resumeButton.SetActive(false);
-    }
+    
 
     public void PauseGame()
     {
+        if(gameOver)
+            return;
+        
+        
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
@@ -999,10 +1000,6 @@ public class PlayerMovementTest1 : MonoBehaviour
     #endregion
 
     #region Loss
-    public void Lose()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -1011,6 +1008,18 @@ public class PlayerMovementTest1 : MonoBehaviour
             GameOver();
             //PlayerLoss.Loss();
         }
+    }
+
+    public static bool gameOver;
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        PauseMenu.SetActive(true);
+        resumeButton.SetActive(false);
+        checkpointButton.SetActive(true);
+        gameOver = true;
     }
     #endregion
 

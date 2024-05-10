@@ -8,7 +8,6 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject resumeButton;
 
-    
 
     public void GameOver()
     {
@@ -23,7 +22,7 @@ public class PauseMenuManager : MonoBehaviour
     }
     
     //set checkpoints in playerscript
-    public Transform playerRef;
+    public GameObject playerRef;
     public Transform checkpoint;
     /*
     private void Awake()
@@ -33,23 +32,42 @@ public class PauseMenuManager : MonoBehaviour
         //playerRef=find
     }
     */
+
+    
+    public GameObject Boss;
+    public Transform BossStartPos;
     public void RestartFromCheckpoint()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1f;
+        //Debug.Log("before :" + playerRef.transform.position);
         playerRef.transform.position = checkpoint.position;
         playerRef.transform.rotation = checkpoint.rotation;
+        //Debug.Log("after :"+playerRef.transform.position);
         PauseMenu.SetActive(false);
-    }
-   
+        PlayerMovementTest1.gameOver = false;
+        if(Boss.GetComponent<AiAgentTry3>().isInLevelThree)
+        {
+            Boss.transform.position = BossStartPos.position;
+            Boss.transform.rotation = BossStartPos.rotation;
+        }
 
+        //Debug.Log("after 2:"+playerRef.transform.position);
+    }
+
+    private void LateUpdate()
+    {
+        //Debug.Log("after after:"+playerRef.transform.position);
+        
+    }
     //--------------------------done 
     public void Restart()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1f;
+        PlayerMovementTest1.gameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

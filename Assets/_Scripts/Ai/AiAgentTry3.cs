@@ -30,8 +30,8 @@ public class AiAgentTry3 : MonoBehaviour
     public float circleRadius;
 
 
-    private Vector3 walkPoint;
-    private bool walkPointSet;
+    public Vector3 walkPoint;
+    public bool walkPointSet;
 
     [Header("layer masks")]
     public LayerMask obstructionMask;
@@ -105,6 +105,7 @@ public class AiAgentTry3 : MonoBehaviour
     }
     private void Update()
     {
+        //animator.SetFloat("Speed", navAgent.speed);
         playerRefFlastPos = new Vector3(playerRef.position.x, transform.position.y, playerRef.position.z);
         if (!isInLevelThree)
         {
@@ -120,6 +121,7 @@ public class AiAgentTry3 : MonoBehaviour
         {
             DetectToDestroy();
             navAgent.SetDestination(playerRefFlastPos);
+            //navAgent.speed = float.
             navAgent.speed = runSpeed;
             animator.SetFloat("Speed", runSpeed);
             //look faster at player
@@ -176,6 +178,7 @@ public class AiAgentTry3 : MonoBehaviour
                 waitTime -= Time.deltaTime;
                 //set run speed
                 navAgent.speed = 0f;
+                //navAgent.speed= float.mo
                 //set animation in blend tree
                 animator.SetFloat("Speed", 0f);
             }
@@ -529,6 +532,14 @@ public class AiAgentTry3 : MonoBehaviour
         {
             Destroy(ray.collider.gameObject);
         }
+        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, Vector3.forward, out RaycastHit ray2, destroyDistance))
+        {
+            if (ray2.collider.gameObject.CompareTag("Player"))
+            {
+                playerRef.GetComponent<PlayerMovementTest1>().GameOver();
+            }
+        }
+        
     }
 
     #endregion
