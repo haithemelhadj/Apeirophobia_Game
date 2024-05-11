@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
+using Cinemachine;
+using UnityEngine.WSA;
+using Unity.VisualScripting;
+
 public class Target : MonoBehaviour
 {
     public LayerMask playerMask;
@@ -17,6 +21,7 @@ public class Target : MonoBehaviour
     public GameObject level2door;
     public Animator dooranim;
     public Lever leverScript;
+    public CinemachineVirtualCamera doorcam;
     void Start()
     {
         
@@ -113,7 +118,9 @@ public class Target : MonoBehaviour
                 {
                 leverScript.playingLeverAnimation = true;
                     //play door animation
-                    Invoke("OpenDoor", 1f);   
+                    Invoke("activateCam", 0.5f);
+                    Invoke("OpenDoor", 1.5f);
+                    Invoke("disableCamera", 5f);
                 }
                 
             }
@@ -141,5 +148,13 @@ public class Target : MonoBehaviour
     public void OpenDoor()
     {
         dooranim.SetFloat("speed", 1f);
+    }
+    public void activateCam()
+    {
+        doorcam.Priority = 11;
+    }
+    public void disableCamera()
+    {
+        doorcam.Priority = 9;
     }
 }
