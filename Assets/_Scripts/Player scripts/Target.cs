@@ -15,6 +15,8 @@ public class Target : MonoBehaviour
     public GameObject door;
     public GameObject PuzzleUI;
     public GameObject level2door;
+    public Animator dooranim;
+    public Lever leverScript;
     void Start()
     {
         
@@ -106,7 +108,14 @@ public class Target : MonoBehaviour
             } else if(hit.collider.tag == "lever")
             {
                 UI.SetActive(true);
-                level2door.SetActive(false);
+                //play lever animation
+                if (Input.GetKeyDown(KeyCode.E) && !leverScript.playingLeverAnimation)
+                {
+                leverScript.playingLeverAnimation = true;
+                    //play door animation
+                    Invoke("OpenDoor", 1f);   
+                }
+                
             }
         }
         else
@@ -128,5 +137,9 @@ public class Target : MonoBehaviour
         Debug.Log((int)PlayerScript.selector);
         PlayerScript.inventory[(int)PlayerScript.selector] = null;
         PlayerScript.itemIcons[(int)PlayerScript.selector].SetActive(false);
+    }
+    public void OpenDoor()
+    {
+        dooranim.SetFloat("speed", 1f);
     }
 }

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public Animator anim;
+    public bool playingLeverAnimation;
     // Update is called once per frame
     void Update()
     {
-        
+        if (playingLeverAnimation)
+        {
+            anim.SetFloat("speed",1f);
+        }
     }
 }
