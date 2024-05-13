@@ -262,8 +262,6 @@ public class PlayerMovementTest1 : MonoBehaviour
     #endregion
 
 
-
-
     #region player movement System
 
     // player state exists to check if the player is crouching or sprinting or walking, i don't like it, i think i'll go to a bool based system
@@ -998,7 +996,7 @@ public class PlayerMovementTest1 : MonoBehaviour
         }
     }
     #endregion
-
+    
     #region Loss
 
     private void OnCollisionEnter(Collision collision)
@@ -1023,7 +1021,6 @@ public class PlayerMovementTest1 : MonoBehaviour
     }
     #endregion
 
-
     #region extra 
     #region Interactions
 
@@ -1037,8 +1034,8 @@ public class PlayerMovementTest1 : MonoBehaviour
     #endregion
 
     #endregion
-
-
+    /*
+    */
 
     //add items to inventory
     //use scriptable objects to add count and usabilty 
