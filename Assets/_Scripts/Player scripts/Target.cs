@@ -118,9 +118,9 @@ public class Target : MonoBehaviour
                 {
                 leverScript.playingLeverAnimation = true;
                     //play door animation
-                    Invoke("activateCam", 0.5f);
-                    Invoke("OpenDoor", 1.5f);
-                    Invoke("disableCamera", 5f);
+                    Invoke("activateCam", 1.5f);
+                    Invoke("OpenDoor", 3f);
+                    Invoke("disableCamera", 6.5f);
                 }
                 
             }
