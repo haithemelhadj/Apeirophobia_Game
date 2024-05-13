@@ -1882,6 +1882,7 @@ GameObject:
   - component: {fileID: 94134476089581002}
   - component: {fileID: 571897983582069263}
   - component: {fileID: 7917846267151439553}
+  - component: {fileID: 3012044625047553514}
   m_Layer: 10
   m_Name: ai amature try 3
   m_TagString: Enemy
@@ -1949,7 +1950,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1991,6 +1992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496fc2383522f7c40938615c99dee582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usesMeshToDetect: 1
   navAgent: {fileID: 571897983582069263}
   animator: {fileID: 2810533987493690537}
   playerRef: {fileID: 0}
@@ -2003,6 +2005,8 @@ MonoBehaviour:
   segments: 40
   fovRadius: 5
   circleRadius: 2
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointSet: 0
   obstructionMask:
     serializedVersion: 2
     m_Bits: 329
@@ -2037,6 +2041,34 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   destroyDistance: 0
+  lenghtModifier: 0
+--- !u!54 &3012044625047553514
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303292501172755439}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &9201776852864702546
 GameObject:
   m_ObjectHideFlags: 0

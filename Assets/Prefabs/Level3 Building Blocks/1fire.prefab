@@ -1233,6 +1233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9059671632612858470}
   - component: {fileID: 5701057676429136156}
+  - component: {fileID: 1864643540605355090}
   m_Layer: 0
   m_Name: student table (1)
   m_TagString: Untagged
@@ -1278,6 +1279,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0.001, y: 0.005, z: 0}
+--- !u!114 &1864643540605355090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782463327654161794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569c9ba57218fbc49bbc1fc99253ec77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4917324460335484183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,6 +1716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6576198589576706005}
   - component: {fileID: 6007638960115530863}
+  - component: {fileID: 6804632163091108230}
   m_Layer: 0
   m_Name: student table
   m_TagString: Untagged
@@ -1748,6 +1762,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0.001, y: 0.005, z: 0}
+--- !u!114 &6804632163091108230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767010415277288815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569c9ba57218fbc49bbc1fc99253ec77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5826575135039344361
 GameObject:
   m_ObjectHideFlags: 0

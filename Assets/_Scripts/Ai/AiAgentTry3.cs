@@ -525,14 +525,16 @@ public class AiAgentTry3 : MonoBehaviour
 
     public LayerMask blockLayer;
     public float destroyDistance;
+    public float lenghtModifier;
     private void DetectToDestroy()
     {
-        Debug.DrawRay(transform.position + Vector3.up, Vector3.forward * destroyDistance, Color.black);
-        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, Vector3.forward, out RaycastHit ray, destroyDistance, blockLayer)) 
+        Debug.DrawRay(transform.position + Vector3.up* lenghtModifier, Vector3.forward * destroyDistance, Color.red);
+        if (Physics.Raycast(transform.position + Vector3.up * lenghtModifier, Vector3.forward, out RaycastHit ray, destroyDistance, blockLayer)) 
         {
-            Destroy(ray.collider.gameObject);
+            //Debug.Log("destroying block");
+            //Destroy(ray.collider.gameObject);
         }
-        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, Vector3.forward, out RaycastHit ray2, destroyDistance))
+        if (Physics.Raycast(transform.position + Vector3.up * lenghtModifier, Vector3.forward, out RaycastHit ray2, destroyDistance))
         {
             if (ray2.collider.gameObject.CompareTag("Player"))
             {

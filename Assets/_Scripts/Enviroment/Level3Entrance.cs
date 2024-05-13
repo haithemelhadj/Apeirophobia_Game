@@ -23,8 +23,8 @@ public class Level3Entrance : MonoBehaviour
         //manage ui
         inventory.SetActive(false);
         //manage player 
-        playerScript.SprintSpeed = 7;
-        playerScript.walkSpeed = playerScript.SprintSpeed;
+        playerScript.SprintSpeed = 5.4f;
+        //playerScript.walkSpeed = playerScript.SprintSpeed;
         //manage enviroment
         //start lvl 3 camera
         lvl3Cam.Priority = 20;
@@ -79,7 +79,7 @@ public class Level3Entrance : MonoBehaviour
         // start level 3 lofic in ai
         aiScript.isInLevelThree = true;
         playerScript.walkSpeed = playerScript.SprintSpeed;
-        playerScript.CurrMaxMoveSpeed = playerScript.SprintSpeed;
+        playerScript.CurrMaxMoveSpeed = playerScript.walkSpeed;
         playerScript.rotationSpeed = 9f;
         lvl3Cam.LookAt = playerRef.transform;
         lvl3Cam.m_Lens.FieldOfView= 70;

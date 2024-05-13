@@ -1034,8 +1034,6 @@ public class PlayerMovementTest1 : MonoBehaviour
     #endregion
 
     #endregion
-    /*
-    */
 
     //add items to inventory
     //use scriptable objects to add count and usabilty 
