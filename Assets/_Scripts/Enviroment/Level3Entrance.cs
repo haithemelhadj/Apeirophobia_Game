@@ -17,8 +17,25 @@ public class Level3Entrance : MonoBehaviour
     {
         //AiScript = AiAgent.GetComponent<AiAgentTry3>();
         playerScript = playerRef.GetComponent<PlayerMovementTest1>();
+
+        ManageAi();
+
+        //manage ui
+        inventory.SetActive(false);
+        //manage player 
+        playerScript.SprintSpeed = 7;
+        playerScript.walkSpeed = playerScript.SprintSpeed;
+        //manage enviroment
+        //start lvl 3 camera
+        lvl3Cam.Priority = 20;
+        playerScript.walkSpeed = 0;
+        playerScript.CurrMaxMoveSpeed = 0;
+        playerScript.rotationSpeed = 0;
+        lvl3Cam.LookAt = aiAgent.transform;
+        lvl3Cam.m_Lens.FieldOfView= 50;
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -34,9 +51,10 @@ public class Level3Entrance : MonoBehaviour
             //start lvl 3 camera
             lvl3Cam.Priority = 20;
 
-            
         }
     }
+    /*
+    */
 
     private void ManageAi()
     {
@@ -60,6 +78,10 @@ public class Level3Entrance : MonoBehaviour
     {
         // start level 3 lofic in ai
         aiScript.isInLevelThree = true;
-
+        playerScript.walkSpeed = playerScript.SprintSpeed;
+        playerScript.CurrMaxMoveSpeed = playerScript.SprintSpeed;
+        playerScript.rotationSpeed = 9f;
+        lvl3Cam.LookAt = playerRef.transform;
+        lvl3Cam.m_Lens.FieldOfView= 70;
     }
 }

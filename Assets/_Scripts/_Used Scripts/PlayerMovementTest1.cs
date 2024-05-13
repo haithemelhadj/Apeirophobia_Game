@@ -89,7 +89,7 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("my player pos : " + transform.position);
+        //Debug.Log("my player pos : " + transform.position);
         PauseGame();
         inputDir = InputDir();
         isGrounded = GroundCheck();
@@ -102,21 +102,21 @@ public class PlayerMovementTest1 : MonoBehaviour
             //Debug.Log("landed");
             //playerState = Pstate.standing;
         }
-        Debug.Log("1" + transform.position);
+        //Debug.Log("1" + transform.position);
         VSpeedControl();
 
         LedgeGrab();
 
         ClimbLadder();
-        Debug.Log("1" + transform.position);
+        //Debug.Log("1" + transform.position);
         //CameraManager();
 
         AnimatorUpdate();
         RotatePlayer();
-        Debug.Log("1" + transform.position);
+        //Debug.Log("1" + transform.position);
         MovementDrag();
         HSpeedControl();
-        Debug.Log("1" + transform.position);
+        //Debug.Log("1" + transform.position);
     }
     private void FixedUpdate()
     {
@@ -286,7 +286,7 @@ public class PlayerMovementTest1 : MonoBehaviour
     #region player rotation handler
 
     //rotate player based on camera direction
-    [SerializeField] float rotationSpeed = 9f;
+    [SerializeField] public float rotationSpeed = 9f;
     private void RotatePlayer()
     {
         //smoothly change the player object rotation to the input direction
@@ -339,7 +339,7 @@ public class PlayerMovementTest1 : MonoBehaviour
     #region movement handler
     [Header("Movement Speed")]//player movement variables
     // horizontal movement
-    [SerializeField] float CurrMaxMoveSpeed;
+    [SerializeField] public float CurrMaxMoveSpeed;
     [SerializeField] float acceleration = 1;
     [SerializeField] float deceleration = 3;
     [SerializeField] public float walkSpeed = 5;
@@ -1018,7 +1018,7 @@ public class PlayerMovementTest1 : MonoBehaviour
         Cursor.visible = true;
         PauseMenu.SetActive(true);
         resumeButton.SetActive(false);
-        checkpointButton.SetActive(true);
+        //checkpointButton.SetActive(true);
         gameOver = true;
     }
     #endregion
