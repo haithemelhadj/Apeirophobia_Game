@@ -112,6 +112,7 @@ public class Target : MonoBehaviour
                 }
             } else if(hit.collider.tag == "lever")
             {
+                if (!leverScript) return;
                 UI.SetActive(true);
                 //play lever animation
                 if (Input.GetKeyDown(KeyCode.E) && !leverScript.playingLeverAnimation)

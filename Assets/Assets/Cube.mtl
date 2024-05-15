@@ -1,0 +1,14 @@
+newmtl bedroowall
+map_Pm grey_plaster_disp_1k.png
+bump grey_plaster_nor_gl_1k.exr
+disp grey_plaster_rough_1k.jpg
+map_Kd grey_plaster_diff_1k.jpg
+Kd 1 1 1
+d 1
+
+newmtl wood_floor
+map_Pm wood_cabinet_worn_long_disp_1k.png
+map_Kd wood_cabinet_worn_long_diff_1k.jpg
+Kd 1 1 1
+d 1
+
