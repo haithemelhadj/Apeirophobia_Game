@@ -1,0 +1,14 @@
+newmtl Test_Optical_Iluusion
+Kd 1.0 1.0 1.0
+d 1.0
+
+newmtl wood_floor
+map_Pm D:/Users/Kuruttakao/Documents/GitHub/Apeirophobia_Game/Assets/ToNewProject/Textures/wood_cabinet_worn_long_disp_1k.png
+map_Kd D:/Users/Kuruttakao/Documents/GitHub/Apeirophobia_Game/Assets/ToNewProject/Textures/wood_cabinet_worn_long_diff_1k.jpg
+Kd 1 1 1
+d 1
+
+newmtl White_Outline
+Kd 0.7735849 0.7458525 0.7458525
+d 1
+
