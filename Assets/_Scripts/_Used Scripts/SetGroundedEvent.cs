@@ -6,7 +6,7 @@ public class SetGroundedEvent : MonoBehaviour
     public void OnLanding()
     {
         playerScript.playerState = PlayerMovementTest1.Pstate.standing;
-
         playerScript.CameraSystem(playerScript.playerState);
+        Debug.Log("ground set");
     }
 }

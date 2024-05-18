@@ -96,8 +96,8 @@ public class AiAgentTry3 : MonoBehaviour
         }
         else
         {
-            InitializeMeshCreation();            
         }
+            InitializeMeshCreation();            
         playerRef = GameObject.Find("Player").transform;
         navAgent = GetComponent<NavMeshAgent>();
         StartCoroutine(FOVRoutine());

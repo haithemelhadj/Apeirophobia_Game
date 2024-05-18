@@ -773,7 +773,9 @@ public class PlayerMovementTest1 : MonoBehaviour
         newItem.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    
+
+    private void GoingNearItem(Collider other)
     {
         if (other.CompareTag("Item"))
         {
@@ -1007,6 +1009,17 @@ public class PlayerMovementTest1 : MonoBehaviour
             //PlayerLoss.Loss();
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GoingNearItem(other);
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("LowestPoint"))
+        {
+            GameOver();
+            //PlayerLoss.Loss();
+        }
+    }
+
 
     public static bool gameOver;
     public void GameOver()
