@@ -1,0 +1,29 @@
+.button {
+    width: 763px;
+    height: 127px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+    align-self: center;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    margin-left: 20px;
+    background-image: none;
+    -unity-font: url('project://database/Assets/Ui%20&%20Ux/Menu/Font/Koch-Antiqua.ttf?fileID=12800000&guid=cf0e48d8402e8ae4c98c7f00f0d39a05&type=3#Koch-Antiqua');
+    font-size: 84px;
+    -unity-text-align: upper-center;
+    -unity-text-outline-color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0.55);
+    -unity-font-style: normal;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    -unity-background-scale-mode: scale-and-crop;
+    -unity-font-definition: initial;
+}
