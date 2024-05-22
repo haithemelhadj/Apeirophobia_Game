@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/mainmenustyle.uss?fileID=7433441132597879392&amp;guid=43028ad767697fc4085f1aa8ed8f0fb7&amp;type=3#mainmenustyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; margin-top: 365px; margin-right: 300px; margin-bottom: 200px; margin-left: 300px;">
+        <ui:Button text="Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Play" class="button" style="background-color: rgba(255, 255, 255, 0); -unity-background-image-tint-color: rgb(255, 255, 255);" />
+        <ui:Button text="Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Settings" class="button" style="-unity-background-image-tint-color: rgb(255, 255, 255);" />
+        <ui:Button text="Exit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="button" style="-unity-background-image-tint-color: rgb(255, 255, 255);" />
+    </ui:VisualElement>
+</ui:UXML>
