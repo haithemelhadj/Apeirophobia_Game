@@ -11503,7 +11503,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486236813}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.17252342, y: 0.0000000034438183, z: 6.031837e-10, w: 0.98500544}
+  m_LocalRotation: {x: -0.17252344, y: -0.000000029556759, z: -0.0000000051768585,
+    w: 0.98500544}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13761,6 +13762,7 @@ GameObject:
   - component: {fileID: 613642553}
   - component: {fileID: 613642552}
   - component: {fileID: 613642551}
+  - component: {fileID: 613642555}
   m_Layer: 0
   m_Name: Door
   m_TagString: lockedDoor
@@ -13783,7 +13785,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -13848,12 +13850,24 @@ Transform:
   m_GameObject: {fileID: 613642550}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.354477, y: -5.717903, z: 0.8601506}
+  m_LocalPosition: {x: -45.43, y: -5.717903, z: 0.8601506}
   m_LocalScale: {x: 4.0698, y: 12.975388, z: 9.471047}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1687707754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &613642555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613642550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa71a8dc67e9a24284931ca1a83c023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &613968715
 GameObject:
   m_ObjectHideFlags: 0
