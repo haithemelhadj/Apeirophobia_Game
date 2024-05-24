@@ -24,6 +24,7 @@ public class Target : MonoBehaviour
     public CinemachineVirtualCamera doorcam;
     public GameObject[] papers;
     public GameObject pressC;
+    public bool isinlevel2;
     void Start()
     {
         
@@ -137,53 +138,59 @@ public class Target : MonoBehaviour
         {
             UI.SetActive(false);
         }
-        /*
-        if (selectedItem.name == "Book1")
+        if (isinlevel2 && selectedItem)
         {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+            if (selectedItem.name == "Book1")
             {
-                papers[0].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[0].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }
-        else if (selectedItem.name == "Book2")
-        {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+            else if (selectedItem.name == "Book2")
             {
-                papers[1].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[1].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }else if (selectedItem.name == "Book3")
-        {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+            else if (selectedItem.name == "Book3")
             {
-                papers[2].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[2].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }else if (selectedItem.name == "Book4")
-        {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+            else if (selectedItem.name == "Book4")
             {
-                papers[3].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[3].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }else if (selectedItem.name == "Book5")
-        {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+            else if (selectedItem.name == "Book5")
             {
-                papers[4].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[4].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }
-        else
-        {
+            else
+            {
                 pressC.SetActive(false);
+            }
         }
+        
         /*
         */
     }
