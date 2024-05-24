@@ -58,6 +58,7 @@ public class AiAgentTry3 : MonoBehaviour
     #region Draw Gizmos
     private void OnDrawGizmos()
     {
+        /*
         //draw fov
         Vector3 fovLine1 = Quaternion.AngleAxis(fovAngle / 2, transform.up) * transform.forward * fovRadius;
         Vector3 fovLine2 = Quaternion.AngleAxis(-fovAngle / 2, transform.up) * transform.forward * fovRadius;
@@ -83,6 +84,8 @@ public class AiAgentTry3 : MonoBehaviour
             Gizmos.color = Color.black;
             Gizmos.DrawLine(circlePointA, circlePointB);
         }
+        /*
+        */
     }
     #endregion
 
@@ -454,7 +457,7 @@ public class AiAgentTry3 : MonoBehaviour
                 
                 if(Physics.Raycast(transform.position, firstVector, out hit, fovRadius, playerMask) && usesMeshToDetect)
                 {
-                    Debug.Log("hit player");
+                    //Debug.Log("hit player");
                     canSeePlayer = true;
                     lastPlayerSeenPosition = playerRefFlastPos;
                     suspisionTimer = suspisionTime;
@@ -472,12 +475,12 @@ public class AiAgentTry3 : MonoBehaviour
             if (i == 0)
             {
                 //Debug.DrawLine(transform.position, rayHits[i], Color.green);
-                Debug.DrawRay(transform.position, firstVector * fovRadius, Color.black);
+                //Debug.DrawRay(transform.position, firstVector * fovRadius, Color.black);
             }
             else
             {
                 //Debug.DrawLine(transform.position, rayHits[i], Color.red);
-                Debug.DrawRay(transform.position, firstVector * fovRadius, Color.blue);
+                //Debug.DrawRay(transform.position, firstVector * fovRadius, Color.blue);
             }
 
             //rotate ray by 1 segment

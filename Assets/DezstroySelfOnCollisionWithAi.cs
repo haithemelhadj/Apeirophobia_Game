@@ -8,7 +8,7 @@ public class DezstroySelfOnCollisionWithAi : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

@@ -13,7 +13,7 @@ public class Target : MonoBehaviour
     public float length;
     public GameObject UI;
     public PlayerMovementTest1 PlayerScript;
-    private GameObject selectedItem;
+    public GameObject selectedItem;
     public GameObject[] images;
     public int numOfImgsDone;
     public GameObject door;
@@ -32,12 +32,13 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        selectedItem = PlayerScript.inventory[(int)PlayerScript.selector];
-        if (selectedItem != null)
-        {
-            Debug.Log(selectedItem.name);
-            Debug.Log(selectedItem.gameObject.tag);
-        }
+        //if (selectedItem != null)
+        //{
+        //    Debug.Log(selectedItem.name);
+        //    Debug.Log(selectedItem.gameObject.tag);
+        //}
+        if (PlayerScript.inventory[(int)PlayerScript.selector] != null)
+            selectedItem = PlayerScript.inventory[(int)PlayerScript.selector];
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
         RaycastHit hit;
         Debug.DrawRay(ray.origin, ray.direction * length , Color.red);
@@ -100,6 +101,10 @@ public class Target : MonoBehaviour
                             CheckToOpenDoor();
                         }
                 }
+                else
+                    {
+                        Debug.Log("No item selected");
+                    }
                             
 
                 }
@@ -132,6 +137,7 @@ public class Target : MonoBehaviour
         {
             UI.SetActive(false);
         }
+        /*
         if (selectedItem.name == "Book1")
         {
             pressC.SetActive(true);
@@ -178,6 +184,8 @@ public class Target : MonoBehaviour
         {
                 pressC.SetActive(false);
         }
+        /*
+        */
     }
   
     private void CheckToOpenDoor()
