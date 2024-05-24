@@ -22,6 +22,8 @@ public class Target : MonoBehaviour
     public Animator dooranim;
     public Lever leverScript;
     public CinemachineVirtualCamera doorcam;
+    public GameObject[] papers;
+    public GameObject pressC;
     void Start()
     {
         
@@ -129,6 +131,52 @@ public class Target : MonoBehaviour
         else
         {
             UI.SetActive(false);
+        }
+        if (selectedItem.name == "Book1")
+        {
+            pressC.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                papers[0].SetActive(true);
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
+            }
+        }
+        else if (selectedItem.name == "Book2")
+        {
+            pressC.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                papers[1].SetActive(true);
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
+            }
+        }else if (selectedItem.name == "Book3")
+        {
+            pressC.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                papers[2].SetActive(true);
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
+            }
+        }else if (selectedItem.name == "Book4")
+        {
+            pressC.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                papers[3].SetActive(true);
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
+            }
+        }else if (selectedItem.name == "Book5")
+        {
+            pressC.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                papers[4].SetActive(true);
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
+            }
+        }
+        else
+        {
+                pressC.SetActive(false);
         }
     }
   
