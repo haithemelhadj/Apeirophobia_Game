@@ -22748,13 +22748,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949365547}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0033158006, y: -0.0028709644, z: -0.0069550993, w: 0.9999662}
-  m_LocalPosition: {x: -3.3600028, y: -0.29000282, z: 14.250019}
+  m_LocalRotation: {x: 0.003048027, y: -0.0031538082, z: 0.08178506, w: 0.9966404}
+  m_LocalPosition: {x: -3.34, y: -0.42, z: 14.25}
   m_LocalScale: {x: 38.599995, y: 38.599995, z: 38.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2047693246}
-  m_LocalEulerAnglesHint: {x: 0.378, y: -0.332, z: -0.798}
+  m_LocalEulerAnglesHint: {x: 0.378, y: -0.332, z: 9.381}
 --- !u!23 &949365549
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42434,11 +42434,6 @@ PrefabInstance:
       propertyPath: PuzzleUI
       value: 
       objectReference: {fileID: 1966604502}
-    - target: {fileID: 6320432015050160710, guid: 414e5813bb22fbd47bae0335196c0cb6,
-        type: 3}
-      propertyPath: isinlevel2
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6320432015050160710, guid: 414e5813bb22fbd47bae0335196c0cb6,
         type: 3}
       propertyPath: PlayerScript
