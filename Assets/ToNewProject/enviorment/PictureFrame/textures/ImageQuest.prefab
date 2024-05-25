@@ -5138,5 +5138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObj: {fileID: 0}
   Scriptable: {fileID: 0}
-  itemImage: {fileID: 21300000, guid: 89c6efa965dcb714db837925f799ea9f, type: 3}
+  itemImage: {fileID: 1326799345, guid: 6636fe33c69297f4182339d2fad11af6, type: 3}
   item: {fileID: 0}
