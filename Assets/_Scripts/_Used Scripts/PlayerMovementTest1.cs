@@ -22,7 +22,7 @@ public class PlayerMovementTest1 : MonoBehaviour
     private void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = true;
+        Cursor.visible = false;
     }
 
     private void MoveToOffset(Vector3 offset)

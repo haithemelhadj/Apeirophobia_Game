@@ -10,6 +10,8 @@ public class closepaper : MonoBehaviour
     public void close()
     {
         paper.SetActive(false);
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
