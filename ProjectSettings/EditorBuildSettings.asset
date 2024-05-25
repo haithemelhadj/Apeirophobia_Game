@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/Gameplay/Runner Scene.unity
     guid: 74444f82356758c4b979651290fd53a2
   - enabled: 1
+    path: Assets/_Scenes/Ui/Credits.unity
+    guid: 22ba6f0d8a8d8e54aafe05cc409a1d36
+  - enabled: 1
     path: Assets/_Scenes/Ui/MainMenu.unity
     guid: 89ade1c5c683ea149bd85b9177ddb206
   m_configObjects: {}
