@@ -138,47 +138,50 @@ public class Target : MonoBehaviour
         {
             UI.SetActive(false);
         }
-
-        if (selectedItem && isInLevel2)
+        if(isInLevel2)
         {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C) && Time.timeScale != 0) 
+            if (selectedItem)
             {
-                switch (selectedItem.name)
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C) && Time.timeScale != 0)
                 {
-                    case "Book1":
-                        papers[0].SetActive(true);
-                        Time.timeScale = 0;
-                        break;
-                    case "Book2":
-                        papers[1].SetActive(true);
-                        Time.timeScale = 0;
-                        break;
-                    case "Book3":
-                        papers[2].SetActive(true);
-                        Time.timeScale = 0;
-                        break;
-                    case "Book4":
-                        papers[3].SetActive(true);
-                        Time.timeScale = 0;
-                        break;
-                    case "Book5":
-                        papers[4].SetActive(true);
-                        Time.timeScale = 0;
-                        break;
-                    default:
-                        pressC.SetActive(false);
-                        Time.timeScale = 0;
-                        break;
+                    switch (selectedItem.name)
+                    {
+                        case "Book1":
+                            papers[0].SetActive(true);
+                            Time.timeScale = 0;
+                            break;
+                        case "Book2":
+                            papers[1].SetActive(true);
+                            Time.timeScale = 0;
+                            break;
+                        case "Book3":
+                            papers[2].SetActive(true);
+                            Time.timeScale = 0;
+                            break;
+                        case "Book4":
+                            papers[3].SetActive(true);
+                            Time.timeScale = 0;
+                            break;
+                        case "Book5":
+                            papers[4].SetActive(true);
+                            Time.timeScale = 0;
+                            break;
+                        default:
+                            pressC.SetActive(false);
+                            Time.timeScale = 0;
+                            break;
+                    }
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                 }
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+            }
+            else
+            {
+                pressC.SetActive(false);
             }
         }
-        else
-        {
-            pressC.SetActive(false);
-        }
+        
         /*
         if (selectedItem && isInLevel2)
         {

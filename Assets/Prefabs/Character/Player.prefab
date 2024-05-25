@@ -1340,7 +1340,7 @@ GameObject:
   - component: {fileID: 178605598089725087}
   m_Layer: 9
   m_Name: TheoModel
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3732,7 +3732,7 @@ MonoBehaviour:
   groundDrag: 2
   AirDrag: 3
   CrouchSpeed: 0.7
-  capsuleCollider: {fileID: 6333150602539956813}
+  capsuleCollider: {fileID: 334778870633877657}
   SprintSpeed: 4
   canSprint: 0
   jumpForce: 8

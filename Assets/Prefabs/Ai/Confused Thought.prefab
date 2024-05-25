@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496fc2383522f7c40938615c99dee582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usesMeshToDetect: 1
+  usesMeshToDetect: 0
   navAgent: {fileID: 2640805583461759899}
   animator: {fileID: 4751060808026743981}
   playerRef: {fileID: 0}
@@ -970,7 +970,7 @@ MonoBehaviour:
   isInLevelThree: 0
   fovAngle: 70
   segments: 40
-  fovRadius: 5
+  fovRadius: 10
   circleRadius: 2
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointSet: 0
