@@ -126,9 +126,9 @@ public class Target : MonoBehaviour
                 {
                 leverScript.playingLeverAnimation = true;
                     //play door animation
-                    Invoke("activateCam", 1.5f);
-                    Invoke("OpenDoor", 3f);
-                    Invoke("disableCamera", 6.5f);
+                    Invoke("activateCam", 3.5f);
+                    Invoke("OpenDoor", 6f);
+                    Invoke("disableCamera", 10.5f);
                 }
                 
             }
@@ -137,7 +137,9 @@ public class Target : MonoBehaviour
         {
             UI.SetActive(false);
         }
-        /*
+        if (selectedItem)
+        {
+            
         if (selectedItem.name == "Book1")
         {
             pressC.SetActive(true);
@@ -183,6 +185,7 @@ public class Target : MonoBehaviour
         else
         {
                 pressC.SetActive(false);
+        }
         }
         /*
         */
