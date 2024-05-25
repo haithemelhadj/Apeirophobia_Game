@@ -8,6 +8,7 @@ public class CloseUI : MonoBehaviour
     public void Close()
     {
         UI.SetActive(false);
+        Time.timeScale = 1f;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 }
