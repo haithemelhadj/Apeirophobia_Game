@@ -1,6 +1,4 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Level3Entrance : MonoBehaviour
@@ -32,7 +30,7 @@ public class Level3Entrance : MonoBehaviour
         playerScript.CurrMaxMoveSpeed = 0;
         playerScript.rotationSpeed = 0;
         lvl3Cam.LookAt = aiAgent.transform;
-        lvl3Cam.m_Lens.FieldOfView= 50;
+        lvl3Cam.m_Lens.FieldOfView = 50;
     }
 
     /*
@@ -82,6 +80,6 @@ public class Level3Entrance : MonoBehaviour
         playerScript.CurrMaxMoveSpeed = playerScript.walkSpeed;
         playerScript.rotationSpeed = 9f;
         lvl3Cam.LookAt = playerRef.transform;
-        lvl3Cam.m_Lens.FieldOfView= 70;
+        lvl3Cam.m_Lens.FieldOfView = 70;
     }
 }

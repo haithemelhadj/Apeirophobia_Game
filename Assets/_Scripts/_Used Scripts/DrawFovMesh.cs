@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DrawFovMesh : MonoBehaviour
@@ -28,7 +26,7 @@ public class DrawFovMesh : MonoBehaviour
 
     void Start()
     {
-        Radius = enemyScript.radius * coifissent * (1/enemyScript.gameObject.transform.localScale.x);// calculate the mech foc raduis
+        Radius = enemyScript.radius * coifissent * (1 / enemyScript.gameObject.transform.localScale.x);// calculate the mech foc raduis
         angle = enemyScript.fovAngle * 0.5f;
 
         var MeshF = gameObject.AddComponent<MeshFilter>();
@@ -87,7 +85,7 @@ public class DrawFovMesh : MonoBehaviour
                                                   0,                                                                // y
                                                   Mathf.Sin(Mathf.Deg2Rad * a) * Radius);  // z
 
-            a += segmentAngle; 
+            a += segmentAngle;
 
             verts[i + 1] = new Vector3(Mathf.Cos(Mathf.Deg2Rad * a) * Radius, // x
                                                       0,                                                                // y

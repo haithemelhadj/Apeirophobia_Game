@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +18,7 @@ public class PauseMenuManager : MonoBehaviour
         PauseMenu.SetActive(true);
         resumeButton.SetActive(true);
     }
-    
+
     //set checkpoints in playerscript
     public GameObject playerRef;
     public Transform checkpoint;
@@ -33,7 +31,7 @@ public class PauseMenuManager : MonoBehaviour
     }
     */
 
-    
+
     public GameObject Boss;
     public Transform BossStartPos;
     public void RestartFromCheckpoint()
@@ -47,7 +45,7 @@ public class PauseMenuManager : MonoBehaviour
         //Debug.Log("after :"+playerRef.transform.position);
         PauseMenu.SetActive(false);
         PlayerMovementTest1.gameOver = false;
-        if(Boss.GetComponent<AiAgentTry3>().isInLevelThree)
+        if (Boss.GetComponent<AiAgentTry3>().isInLevelThree)
         {
             Boss.transform.position = BossStartPos.position;
             Boss.transform.rotation = BossStartPos.rotation;
@@ -59,7 +57,7 @@ public class PauseMenuManager : MonoBehaviour
     private void LateUpdate()
     {
         //Debug.Log("after after:"+playerRef.transform.position);
-        
+
     }
     //--------------------------done 
     public void Restart()

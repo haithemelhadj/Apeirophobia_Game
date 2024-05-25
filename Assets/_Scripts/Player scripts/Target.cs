@@ -1,11 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.UI;
 using Cinemachine;
-using UnityEngine.WSA;
-using Unity.VisualScripting;
+using UnityEngine;
 
 public class Target : MonoBehaviour
 {
@@ -24,9 +18,10 @@ public class Target : MonoBehaviour
     public CinemachineVirtualCamera doorcam;
     public GameObject[] papers;
     public GameObject pressC;
+    public bool isInLevel2;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -39,9 +34,9 @@ public class Target : MonoBehaviour
         //}
         if (PlayerScript.inventory[(int)PlayerScript.selector] != null)
             selectedItem = PlayerScript.inventory[(int)PlayerScript.selector];
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * length , Color.red);
+        Debug.DrawRay(ray.origin, ray.direction * length, Color.red);
         if (Physics.Raycast(ray, out hit, length, ~playerMask))
         {
             Debug.Log(hit.collider.name);
@@ -55,16 +50,18 @@ public class Target : MonoBehaviour
                     //Destroy(hit.collider.gameObject);
                     hit.collider.gameObject.SetActive(false);
                 }
-            }else if(hit.collider.tag == "Moveable")
+            }
+            else if (hit.collider.tag == "Moveable")
             {
                 UI.SetActive(true);
-            }else if(hit.collider.tag == "Frames")
+            }
+            else if (hit.collider.tag == "Frames")
             {
                 UI.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                if(selectedItem != null)
-                {
+                    if (selectedItem != null)
+                    {
                         if (selectedItem.name == "1")
                         {
                             images[0].SetActive(true);
@@ -100,12 +97,12 @@ public class Target : MonoBehaviour
                             numOfImgsDone++;
                             CheckToOpenDoor();
                         }
-                }
-                else
+                    }
+                    else
                     {
                         Debug.Log("No item selected");
                     }
-                            
+
 
                 }
             }
@@ -117,83 +114,87 @@ public class Target : MonoBehaviour
                     PuzzleUI.SetActive(true);
                     UnityEngine.Cursor.lockState = CursorLockMode.None;
                 }
-            } else if(hit.collider.tag == "lever")
+            }
+            else if (hit.collider.tag == "lever")
             {
                 if (!leverScript) return;
                 UI.SetActive(true);
                 //play lever animation
                 if (Input.GetKeyDown(KeyCode.E) && !leverScript.playingLeverAnimation)
                 {
-                leverScript.playingLeverAnimation = true;
+                    leverScript.playingLeverAnimation = true;
                     //play door animation
                     Invoke("activateCam", 3.5f);
                     Invoke("OpenDoor", 6f);
                     Invoke("disableCamera", 10.5f);
                 }
-                
+
             }
         }
         else
         {
             UI.SetActive(false);
         }
-        if (selectedItem)
+        if (selectedItem && isInLevel2)
         {
-            
-        if (selectedItem.name == "Book1")
-        {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+
+            if (selectedItem.name == "Book1")
             {
-                papers[0].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[0].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }
-        else if (selectedItem.name == "Book2")
-        {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+            else if (selectedItem.name == "Book2")
             {
-                papers[1].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[1].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }else if (selectedItem.name == "Book3")
-        {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+            else if (selectedItem.name == "Book3")
             {
-                papers[2].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[2].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }else if (selectedItem.name == "Book4")
-        {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+            else if (selectedItem.name == "Book4")
             {
-                papers[3].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[3].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }else if (selectedItem.name == "Book5")
-        {
-            pressC.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.C))
+            else if (selectedItem.name == "Book5")
             {
-                papers[4].SetActive(true);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                pressC.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    papers[4].SetActive(true);
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                }
             }
-        }
-        else
-        {
+            else
+            {
                 pressC.SetActive(false);
-        }
+            }
         }
         /*
         */
     }
-  
+
     private void CheckToOpenDoor()
     {
-        if(numOfImgsDone>=5)
+        if (numOfImgsDone >= 5)
         {
             door.SetActive(false);
         }

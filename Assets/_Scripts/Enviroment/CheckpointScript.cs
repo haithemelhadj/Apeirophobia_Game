@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckpointScript : MonoBehaviour
@@ -12,7 +10,7 @@ public class CheckpointScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") )//&& isInLvlOne)
+        if (other.CompareTag("Player"))//&& isInLvlOne)
         {
             pauseMenuManager.checkpoint = transform;
         }

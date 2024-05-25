@@ -1,7 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
-using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -25,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     public Material fovMaterial;
     //public Material CircleZoneMaterial;
-    
+
     public CircleCollision circleCollision;
 
 
@@ -44,7 +43,7 @@ public class Enemy : MonoBehaviour
         currentPoint = 0;
         StartCoroutine(FOVRoutine());
     }
-    
+
 
     private void Update()
     {
@@ -222,7 +221,7 @@ public class Enemy : MonoBehaviour
 
     #endregion
 
-    
+
 
     #region extra
     //  private void AttackPlayer()
@@ -298,6 +297,6 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 
-#endregion 
+    #endregion
 
 }

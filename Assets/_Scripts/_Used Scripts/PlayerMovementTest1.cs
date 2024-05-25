@@ -79,7 +79,7 @@ public class PlayerMovementTest1 : MonoBehaviour
         LockCursor();
         playerInputs = new PLayer_Inputs();
         CurrMaxMoveSpeed = walkSpeed;
-        
+
     }
     private void Start()
     {
@@ -176,7 +176,7 @@ public class PlayerMovementTest1 : MonoBehaviour
         {
             animator.SetFloat("VelocityH", inputDir.magnitude * CurrMaxMoveSpeed * MathF.Sign(move.ReadValue<Vector2>().y));
         }
-        else if(playerState == Pstate.crouching)
+        else if (playerState == Pstate.crouching)
         {
             animator.SetFloat("VelocityH", inputDir.magnitude);
         }
@@ -433,7 +433,7 @@ public class PlayerMovementTest1 : MonoBehaviour
     public bool canSprint;
     private void DoSprint(InputAction.CallbackContext context)
     {
-        if(!canSprint)
+        if (!canSprint)
         {
             return;
         }
@@ -495,7 +495,7 @@ public class PlayerMovementTest1 : MonoBehaviour
             return;
         }
 
-        if (!isGrounded || playerState == Pstate.crouching || playerState == Pstate.pushing) 
+        if (!isGrounded || playerState == Pstate.crouching || playerState == Pstate.pushing)
             return;
 
         if (Time.time - LastTouchGroundTime < landingDuration)
@@ -591,8 +591,8 @@ public class PlayerMovementTest1 : MonoBehaviour
                     //save hanging position to fix if ruined
                     hangingPosition = transform.position;
                     //set other constraints
-                    
-                    
+
+
 
                 }
             }
@@ -650,7 +650,7 @@ public class PlayerMovementTest1 : MonoBehaviour
     public bool isNearItem = false;
 
     //public List<GameObject> inventoryList;
-    
+
     [Header("Inventory Scroll")]
     public float scrollSpeed = 3;
     public float selector = 0;
@@ -728,7 +728,7 @@ public class PlayerMovementTest1 : MonoBehaviour
 
     private void OnCollect(InputAction.CallbackContext context)
     {
-        if (isNearItem )
+        if (isNearItem)
         {
             //rotate player to object
             Physics.Raycast(playerObj.position, item.transform.position - playerObj.position, out RaycastHit Hit);
@@ -773,7 +773,7 @@ public class PlayerMovementTest1 : MonoBehaviour
         newItem.SetActive(false);
     }
 
-    
+
 
     private void GoingNearItem(Collider other)
     {
@@ -978,15 +978,15 @@ public class PlayerMovementTest1 : MonoBehaviour
     public GameObject resumeButton;
     public GameObject checkpointButton;
 
-    
+
 
     public void PauseGame()
     {
-        if(gameOver)
+        if (gameOver)
             return;
-        
-        
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
             Cursor.visible = !Cursor.visible;
@@ -998,7 +998,7 @@ public class PlayerMovementTest1 : MonoBehaviour
         }
     }
     #endregion
-    
+
     #region Loss
 
     private void OnCollisionEnter(Collision collision)

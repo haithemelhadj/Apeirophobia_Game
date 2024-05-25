@@ -1,10 +1,7 @@
 using Cinemachine;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.XR;
 //using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class AiAgentTry3 : MonoBehaviour
@@ -50,10 +47,10 @@ public class AiAgentTry3 : MonoBehaviour
     public float walkSpeed;
     public float runSpeed;
 
-    
-    
 
-    
+
+
+
 
     #region Draw Gizmos
     private void OnDrawGizmos()
@@ -100,7 +97,7 @@ public class AiAgentTry3 : MonoBehaviour
         else
         {
         }
-            InitializeMeshCreation();            
+        InitializeMeshCreation();
         playerRef = GameObject.Find("Player").transform;
         navAgent = GetComponent<NavMeshAgent>();
         StartCoroutine(FOVRoutine());
@@ -112,7 +109,7 @@ public class AiAgentTry3 : MonoBehaviour
         playerRefFlastPos = new Vector3(playerRef.position.x, transform.position.y, playerRef.position.z);
         if (!isInLevelThree)
         {
-            if(usesMeshToDetect)
+            if (usesMeshToDetect)
             {
 
             }
@@ -131,7 +128,7 @@ public class AiAgentTry3 : MonoBehaviour
             Vector3 direction = playerRefFlastPos - transform.position;
             transform.forward = Vector3.Slerp(transform.forward, direction.normalized, Time.deltaTime * chaseRotation);
         }
-        else if (canSeePlayer) 
+        else if (canSeePlayer)
         {
             //set material color
             this.fovMaterial.color = chaseColor;
@@ -168,7 +165,7 @@ public class AiAgentTry3 : MonoBehaviour
     #region patrol
     private void Patroling()
     {
-        
+
         if (!walkPointSet)
         {
             GetnextWalkPoint();
@@ -214,7 +211,7 @@ public class AiAgentTry3 : MonoBehaviour
     [Header("search")]
     public float searchPointRange;
     public float suspisionTime;
-    public float suspisionTimer; 
+    public float suspisionTimer;
     #region search
     private void Search()
     {
@@ -285,7 +282,7 @@ public class AiAgentTry3 : MonoBehaviour
     #endregion
     //------------------------------------------See---------------------
     #region See
-    
+
     private IEnumerator FOVRoutine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
@@ -301,7 +298,7 @@ public class AiAgentTry3 : MonoBehaviour
     }
     private void See()
     {
-        if(Vector3.Distance(transform.position, playerRef.position) < circleRadius)
+        if (Vector3.Distance(transform.position, playerRef.position) < circleRadius)
         {
             if (!Physics.Raycast(eyes.position, playerRef.position, obstructionMask))
             {
@@ -311,16 +308,16 @@ public class AiAgentTry3 : MonoBehaviour
                 return;
             }
         }
-        if(Vector3.Distance(transform.position, playerRef.position) < fovRadius)
+        if (Vector3.Distance(transform.position, playerRef.position) < fovRadius)
         {
             Vector3 dirToPlayer = (playerRef.position - transform.position).normalized;
             float angleBetweenGuardAndPlayer = Vector3.Angle(transform.forward, dirToPlayer);
 
-            if(angleBetweenGuardAndPlayer < fovAngle / 2f)
+            if (angleBetweenGuardAndPlayer < fovAngle / 2f)
             {
-                Debug.DrawRay(eyes.position,   playerRef.position-transform.position, Color.green, 1f);
+                Debug.DrawRay(eyes.position, playerRef.position - transform.position, Color.green, 1f);
                 Debug.Log("drawing line");
-                if(!Physics.Raycast(eyes.position, playerRef.position-transform.position, out RaycastHit hiit, fovRadius, obstructionMask))
+                if (!Physics.Raycast(eyes.position, playerRef.position - transform.position, out RaycastHit hiit, fovRadius, obstructionMask))
                 {
                     canSeePlayer = true;
                     Debug.Log("can see player");
@@ -348,7 +345,7 @@ public class AiAgentTry3 : MonoBehaviour
             Debug.Log("not even close");
             canSeePlayer = false;
         }
-        
+
     }
     /*
     */
@@ -356,7 +353,7 @@ public class AiAgentTry3 : MonoBehaviour
 
 
     #region Camera Shake
-    [Header ("Camera Shake")]
+    [Header("Camera Shake")]
     public float intensity;
     public CinemachineVirtualCamera cinemachineCamera;
     public void shakeCam()
@@ -438,7 +435,7 @@ public class AiAgentTry3 : MonoBehaviour
 
 
         //reset can see player before checking every frame
-        if(usesMeshToDetect)
+        if (usesMeshToDetect)
         {
             canSeePlayer = false;
 
@@ -454,15 +451,15 @@ public class AiAgentTry3 : MonoBehaviour
             }
             else
             {
-                
-                if(Physics.Raycast(transform.position, firstVector, out hit, fovRadius, playerMask) && usesMeshToDetect)
+
+                if (Physics.Raycast(transform.position, firstVector, out hit, fovRadius, playerMask) && usesMeshToDetect)
                 {
                     //Debug.Log("hit player");
                     canSeePlayer = true;
                     lastPlayerSeenPosition = playerRefFlastPos;
                     suspisionTimer = suspisionTime;
                 }
-                
+
                 //Debug.Log("nothing");
                 rayHits[i] = transform.position + firstVector * fovRadius;
             }
@@ -531,8 +528,8 @@ public class AiAgentTry3 : MonoBehaviour
     public float lenghtModifier;
     private void DetectToDestroy()
     {
-        Debug.DrawRay(transform.position + Vector3.up* lenghtModifier, Vector3.forward * destroyDistance, Color.red);
-        if (Physics.Raycast(transform.position + Vector3.up * lenghtModifier, Vector3.forward, out RaycastHit ray, destroyDistance, blockLayer)) 
+        Debug.DrawRay(transform.position + Vector3.up * lenghtModifier, Vector3.forward * destroyDistance, Color.red);
+        if (Physics.Raycast(transform.position + Vector3.up * lenghtModifier, Vector3.forward, out RaycastHit ray, destroyDistance, blockLayer))
         {
             //Debug.Log("destroying block");
             //Destroy(ray.collider.gameObject);
@@ -544,7 +541,7 @@ public class AiAgentTry3 : MonoBehaviour
                 playerRef.GetComponent<PlayerMovementTest1>().GameOver();
             }
         }
-        
+
     }
 
     #endregion
