@@ -3712,8 +3712,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2537956001247972326}
-  animator: {fileID: 2301937240045767589}
-  playerObj: {fileID: 8002626098536939012}
+  animator: {fileID: 4243888677730089238}
+  playerObj: {fileID: 5920124828055720153}
   isGrounded: 0
   inputDir: {x: 0, y: 0, z: 0}
   whatIsGround:
