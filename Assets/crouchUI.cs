@@ -19,4 +19,8 @@ public class crouchUI : MonoBehaviour
         }
         
     }
+    private void OnTriggerExit(Collider other)
+    {
+        Destroy(gameObject);
+    }
 }
