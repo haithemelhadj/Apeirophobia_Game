@@ -21,6 +21,7 @@ public class crouchUI : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        Destroy(gameObject);
+        if (other.gameObject.tag == "Player")
+            Destroy(gameObject);
     }
 }
