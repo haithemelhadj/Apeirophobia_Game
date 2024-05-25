@@ -19,7 +19,7 @@ public class Target : MonoBehaviour
     public GameObject[] papers;
     public GameObject pressC;
     public bool isInLevel2;
-    
+
     void Start()
     {
 
@@ -138,7 +138,7 @@ public class Target : MonoBehaviour
         {
             UI.SetActive(false);
         }
-        if(isInLevel2)
+        if (isInLevel2)
         {
             if (selectedItem)
             {
@@ -181,7 +181,7 @@ public class Target : MonoBehaviour
                 pressC.SetActive(false);
             }
         }
-        
+
         /*
         if (selectedItem && isInLevel2)
         {
