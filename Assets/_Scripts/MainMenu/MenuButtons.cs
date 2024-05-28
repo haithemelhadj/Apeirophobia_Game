@@ -1,10 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
+
 
 public class MenuButtons : MonoBehaviour
 {
+
+    public void Quit()
+    {
+        //quit
+        Application.Quit();
+    }
+
+    public void settingsScene()
+    {
+        //load settings scene
+        SceneManager.LoadScene("settings");
+    }
+
+    public void backButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     //public GameObject[] buttons;
     void Start()
     {
