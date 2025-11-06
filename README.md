@@ -66,10 +66,15 @@ The goal was to explore emotional storytelling through mechanics and environment
 
 ## Screenshots
 
+(Add your images in the repo and update the links below)
+
+![Screenshot 1](Images/Level2.png)
+
+![Screenshot 2](Images/level3.png)
+
+![Screenshot 3](Images/level31.png)
 
 ---
 
 ## Download
 https://kuruttakao.itch.io/apeirophobia
-
-
