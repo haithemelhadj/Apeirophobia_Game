@@ -41,6 +41,11 @@ Click the thumbnail below to watch the gameplay video:
 
 ---
 
+## Download
+https://kuruttakao.itch.io/apeirophobia
+
+---
+
 ## Features
 
 * Immersive, atmospheric 3D environments
@@ -74,7 +79,3 @@ The goal was to explore emotional storytelling through mechanics and environment
 
 ![Screenshot 3](Level31.png)
 
----
-
-## Download
-https://kuruttakao.itch.io/apeirophobia
