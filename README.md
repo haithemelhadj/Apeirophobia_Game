@@ -70,9 +70,9 @@ The goal was to explore emotional storytelling through mechanics and environment
 
 ![Screenshot 1](Level2.png)
 
-![Screenshot 2](level3.png)
+![Screenshot 2](Level3.png)
 
-![Screenshot 3](level31.png)
+![Screenshot 3](Level31.png)
 
 ---
 
