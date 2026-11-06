@@ -1,81 +1,66 @@
 # Apeirophobia
 
-Apeirophobia is a dark-themed 3D puzzle platformer built in Unity.
-The entire game takes place inside the mind of a child undergoing hypnosis, diving into fractured memories and symbolic spaces to confront and heal buried trauma.
+A dark-themed 3D puzzle platformer built in Unity. Explore fractured memories and symbolic spaces inside the mind of a child undergoing hypnosis. This team end-of-studies project combines atmosphere, exploration, stealth and surreal storytelling.
 
-This project was created as an end-of-studies game, exploring atmosphere, emotion, and surreal storytelling.
+[Download on itch.io](https://kuruttakao.itch.io/apeirophobia) · [Portfolio case study](https://haithem-portfolio.vercel.app/projects/apeirophobia/)
 
----
+![Apeirophobia level three](Level3.png)
 
-## About the Game
+## My contribution
 
-You navigate shifting dream-like environments filled with puzzles, platforming challenges, and abstract representations of fear.
-The mood leans into psychological tension rather than jump scares, using lighting, space, and sound design to convey unease and introspection.
+I worked on game design and gameplay programming in a three-person academic team.
 
-**Themes include:**
+- Designed and built **the third level in full**, and maintained parts of the other levels.
+- Implemented player movement and interactions, including buffered jumps, coyote time and variable jump height.
+- Developed patrol, chase and search AI, enemy field-of-view feedback and boss chase behavior.
+- Iterated on encounters, playtesting and gameplay fixes.
 
-* Trauma and recovery
-* Memory and perception
-* Navigating fear through symbolism
+This is shared team work, not a solo game. Art, audio and other project systems include contributions from teammates and asset creators.
 
----
+## About the game
 
-## Gameplay
+Navigate dream-like environments filled with puzzles, platforming challenges and abstract representations of fear. The mood leans into psychological tension rather than jump scares, using lighting, space and sound to convey unease. Themes include trauma and recovery, memory and perception, and navigating fear through symbolism.
 
-Apeirophobia blends:
+### Gameplay
 
-* 3D platforming
-* Environmental puzzles
-* Narrative symbolism
-* Surreal level transitions inside the mind
+- 3D platforming and environmental puzzles.
+- Stealth encounters with readable enemy awareness.
+- Narrative symbolism and surreal level transitions.
+- A boss chase combining traversal and pursuit.
 
-As you progress, environments become more distorted and metaphorical, representing deeper layers of subconscious conflict.
+## Design and implementation
 
----
+**Forgiving movement:** input buffering, coyote time and variable jump height help the controller respond to player intent.
+
+**Readable detection:** a raycast-based dynamic mesh visualizes enemy field of view. The raycast count does not automatically adapt to hardware performance.
+
+**Level ownership:** I built level three and contributed maintenance elsewhere; the whole game was developed collaboratively.
 
 ## Trailer
 
-Click the thumbnail below to watch the gameplay video:
-
 [![Apeirophobia Trailer](https://img.youtube.com/vi/ot_q-WIebbc/0.jpg)](https://www.youtube.com/watch?v=ot_q-WIebbc)
 
----
+## Open the Unity project
 
-## Download
-https://kuruttakao.itch.io/apeirophobia
+1. Clone this repository.
+2. Install **Unity 2022.3.18f1**, the version recorded in `ProjectSettings/ProjectVersion.txt`.
+3. Add the repository root in Unity Hub and allow packages and assets to import.
+4. Check the scenes listed in Build Settings when exploring the project. For the playable version, use the itch.io download above.
 
----
+`Assets/` contains the game content and scripts, `Packages/` records package dependencies, and `ProjectSettings/` contains the Unity project configuration. Preserve asset `.meta` files when moving or editing project content.
 
-## Features
+## Status and next steps
 
-* Immersive, atmospheric 3D environments
-* Narrative-driven progression
-* Puzzle interaction blended with exploration
-* Symbolic level design inspired by psychology
-* Built entirely in Unity as a student project
-
----
-
-## Development
-
-This project was created as an end-of-studies game by a team of students combining:
-
-* Game design
-* Unity development
-* 3D art
-* Sound and narrative design
-
-The goal was to explore emotional storytelling through mechanics and environment.
-
----
+This repository preserves the academic project. A fresh build has not been validated as part of this documentation update. Areas I would revisit include earlier performance profiling and more systematic testing of AI transitions and movement edge cases.
 
 ## Screenshots
 
-(Add your images in the repo and update the links below)
+![Apeirophobia level two](Level2.png)
 
-![Screenshot 1](Level2.png)
+![Apeirophobia level three](Level3.png)
 
-![Screenshot 2](Level3.png)
+![Another view of level three](Level31.png)
 
-![Screenshot 3](Level31.png)
+## Credits and license
 
+The student team combined game design, Unity development, 3D art, sound and narrative work. See the repository contributors and in-project credits for attribution. The repository includes an MIT license; third-party assets may have their own terms.
